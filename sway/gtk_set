@@ -1,0 +1,10 @@
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+  gsettings set $gnome-schema gtk-theme 'Vertex-Light'
+  gsettings set $gnome-schema icon-theme 'kora'
+  gsettings set $gnome-schema cursor-theme 'Oxygen_Black'
+  gsettings set $gnome-schema cursor-size '48'
+  gsettings set $gnome-schema font-name 'Noto Sans Regular 14'
+}
+
+# vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=marker filetype=i3 :

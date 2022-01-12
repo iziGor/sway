@@ -1,0 +1,646 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# kurta helpo por Mod-klavi:
+# Mod1 = Alt (Meta)
+# Mod2 = NumLock
+# Mod3 = unused on default QWERT layout
+# Mod4 = Winkey (Super)
+# Mod5 = kom exemplo: "Alt_Gr" on german QWERTZ layuot
+
+set $Alt Mod1
+set $Num Mod2
+set $Win Mod4
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+set $term alacritty
+
+# variaji por xfce4-terminal
+set $termcmd xfce4-terminal --hide-menubar --hide-scrollbar
+set $ttitle --title
+
+set $scriptdir ${HOME}/.config/sway/scripts
+set $defbordpix 4
+
+default_border pixel $defbordpix
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+bindsym $mod+r exec rofi -show run
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/Downed/pic/wallpaper/balls_spheres_3d_149995_1920x1080.jpg fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input * {
+  xkb_file ~/.config/sway/keymap.xkb
+}
+
+input type:touchpad {
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+  tap enabled
+  pointer_accel 0.1
+  scroll_factor 0.3
+}
+
+font pango:Iosevka Mea Medium 14
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    #bindsym $mod+Return exec $term -o font.size=18
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $termcmd
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    #bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+# switch to workspace
+# {{{
+#bindsym $mod+{1,2,3,4,5,6,7,8} workspace number {1,2,3,4,5,6,7,8}
+#bindsym $mod+{9,0} workspace number {9,10}:
+#bindsym $mod+Control+1 workspace $WrkSpcTV
+#bindsym $mod+Control+1 workspace $WrkSpcTV output "HDMI1"
+#bindsym $mod+Control+{2,3} workspace $WrkSpc1{2,3}
+#bindsym $mod+Control+{4,5,6,7,8,9,0} workspace $WSc{4,5,6,7,8,9,0}
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+bindsym $mod+w exec $scriptdir/focus-window.py
+bindsym $mod+Shift+w exec rofi -modi 'switch:~/.config/sway/scripts/switch_workspaces.sh' -show switch
+# }}}
+
+# {{{ workplaces assignment
+set $browsers [class="(Firefox|Conkeror|Iceweasel|Icecat|Navigator|Waterfox|Vimprobable2|Chromium|brave|Chromium-www|Yandex-browser-beta|Opera|Dwb|Tor Browser|qutebrowser)"]
+
+assign [class=".*[Tt]hunderbird.*"] $mail
+assign [app_id=".*[Tt]hunderbird.*"] $mail
+#for_window $browsers  move container to workspace $web, workspace $web, focus
+#assign $browsers  $web
+assign $browsers  3
+#for_window [class="^(telegram-desktop|Skype|Telegram-desktop|ViberPC|TelegramDesktop|finch|VK)$"] move container to workspace $chat, workspace $chat, focus
+for_window [class="^.*([Tt]elegram[-_]?[Dd]esktop|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
+for_window [app_id="^.*([Tt]elegram[-_]?[Dd]esktop|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
+
+#for_window [class="(?i)^(VirtualBox|vmware|[Qq]emu.*|spic).*$"] move container to workspace $vm, focus
+#for_window [class="Gimp"] move container to workspace $pic, workspace $pic, focus
+#for_window [class="Gimp" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
+for_window [class=".*[Gg]imp.*"] move container to workspace 6, workspace 6, focus
+for_window [app_id=".*[Gg]imp.*"] move container to workspace 6, workspace 6, focus
+for_window [class=".*[Gg]imp.*" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
+for_window [app_id=".*[Gg]imp.*" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
+#for_window [class="darktable"] move container to workspace $pic, workspace $pic, focus
+#for_window [class="^(inkscape|simple-scan)$"] move container to workspace $pic
+#for_window [class="^(MPlayer|mplayer2|mpv|cheese|obs)$"] move container to workspace $media, workspace $media, focus
+for_window [class="^(MPlayer|mplayer2|mpv|cheese|obs)$"] move container to workspace 8, workspace 8, focus
+for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to workspace 8, workspace 8, focus
+#for_window [class="^lollypop$"] move container to workspace $media, workspace $media, focus
+#for_window [class="(?i)dota.*"] floating enable, move container to workspace $wine, workspace $wine, focus
+#for_window [class="(?i)(Wine|Crossover)"] floating enable, move container to workspace $wine, workspace $wine, focus
+#for_window [title="^.*.exe$"] floating enable, move container to workspace $wine, workspace $wine, focus
+#for_window [class="^(XRebirth|UE4Editor)$"] floating enable, move container to workspace $wine, workspace $wine, focus
+# }}}
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+p focus parent
+#
+# Scratchpad:
+#
+# scratchpad
+# {{{ scratchpad
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    #bindsym $mod+minus scratchpad show
+   #bindsym $mod+a scratchpad show
+
+# koncepturo chanjesis:
+# labor-folio kreesas sen celar ol
+# por definitive krear ol presez suba klav-kombino
+#bindsym $mod+Shift+m move scratchpad
+bindsym $mod+a exec python3 $scriptdir/show_scratchpad.py
+bindsym $mod+Shift+a scratchpad show
+bindsym $mod+Control+a exec $scriptdir/show_scratchp.py
+bindsym $mod+$Alt+o exec $scriptdir/run-term-for-scratchpad.sh
+#bindsym $mod+$Alt+o exec $term $ttitle pop
+#bindsym $mod+$Alt+Shift+o exec sakura --config-file=sakura.conf.diafana.mea --title pop
+# por tiparo "Iosevka Mea 18"
+#for_window [title="pop"] move scratchpad, resize set 1737 933, move position 90 60
+
+#for_window [title="pop"] move scratchpad, resize set 1666 847
+for_window [title="pop"] move scratchpad, resize set 1728 942
+#for_window [title="pop"] move scratchpad, resize set 1726 958
+
+# por tiparo "Pragmata Pro 18"
+#for_window [title="pop"] floating enable, resize set 1737 933, move position 90 60
+# por tiparo "Iosevka Term 15"
+#for_window [title="pop"] floating enable, resize set 1736 928, move position 90 60
+# }}}
+
+bindsym $mod+Control+e exec $scriptdir/nagmenu.sh
+
+# hotkeys help
+bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
+
+# ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
+# en rispektiva loki
+#bindsym XF86HomePage workspace $web; exec sh -c 'pgrep firefox || firefox'
+bindsym XF86HomePage workspace $web; exec sh -c 'pgrep -f firefox-bin || firefox-bin'
+bindsym XF86Mail workspace $mail; exec sh -c 'pgrep -f thunderbird-bin || thunderbird-bin'
+bindsym XF86Explorer exec Thunar
+
+# 
+# циклическое переключение окон через <mod_key>+Tab
+bindsym $mod+Tab exec python3 $scriptdir/i3-cycle-focus.py --switch
+#    :для текущего workspace
+#bindsym $mod+Tab exec python3 $scriptdir/i3-cycle-focus.py --switch --active-workspace
+
+# Mark system
+# {{{ VIM-atra systemo mark/goto
+bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: ' -f 'pango:Iosevka Mea Medium 15'
+bindsym $mod+Control+m exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: ' -f 'pango:Iosevka Mea Medium 15'
+# }}}
+
+# {{{ pulse audio volume control
+bindsym XF86AudioLowerVolume exec $scriptdir/snd_vol.sh '-5%'
+bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
+#bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
+bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
+bindsym XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
+bindsym Control+XF86AudioMute exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
+#bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
+#bindsym XF86AudioPlay		exec mpc -h mysvr -p 6600 toggle
+bindsym Control+XF86AudioPlay		exec $scriptdir/mpd-ctrl.sh current
+bindsym XF86AudioPlay		exec $scriptdir/mpd-ctrl.sh toggle
+bindsym XF86AudioNext		exec $scriptdir/mpd-ctrl.sh next
+bindsym XF86AudioPrev		exec $scriptdir/mpd-ctrl.sh prev
+# }}}
+
+# {{{ Making screenshot
+# tota skreno
+set $ps1 Print
+# nur fokizita fenestro
+#set $ps2 Shift+Print
+set $ps2 $mod+Print
+# kun posibleso di selektar rektangulo
+set $ps3 $mod+Shift+Print
+# kun posibleso di selektar fenestro o rektangulo aden kambio-bufro
+set $ps4 Alt+Shift+Print
+# nomo di faylo-modelo por konservar skrena kopio
+set $psf ~/документы/screenshots/sway-$(date +%Y-%m-%d-%H-%M-%S).png 
+
+## Screenshot // Screenshot active display // <Print> ##
+#bindsym Print exec $BIN_DIR/screenshots.sh display
+#bindsym --locked Print exec grim -o "$(swaymsg --type get_outputs --raw | jq -r '.[] | select(.focused) | .name')" - | swappy -f -
+#bindsym --locked $ps1 exec grimshot --notify save output - | swappy -f - & SLIGHT=$(light -G) && light -A 30 && sleep 0.1 && light -S $SLIGHT
+bindsym --locked $ps1 exec grimshot --notify save output - | swappy -f -
+
+## Screenshot // Screenshot current window // <><Print> ##
+#bindsym $mod+Print exec $BIN_DIR/screenshots.sh window
+#bindsym $mod+Print exec swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.focused) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - - | swappy -f -
+#bindsym $mod+Print exec /usr/share/sway/scripts/grimshot --notify save active - | swappy -f - & SLIGHT=$(light -G) && light -A 30 && sleep 0.1 && light -S $SLIGHT
+bindsym $ps2 exec grimshot --notify save active - | swappy -f -
+
+## Screenshot // Screenshot selected region // <><Shift><Print> ##
+#bindsym $mod+Shift+Print exec $BIN_DIR/screenshots.sh region
+#bindsym $mod+Shift+Print exec grim -g "$(slurp -b '#AFAFAFAF' -c '#FF4F3FAF' -s '#00000000' -w 3 -d)" - | swappy -f -
+#bindsym $mod+Shift+Print exec /usr/share/sway/scripts/grimshot --notify save area - | swappy -f - && SLIGHT=$(light -G) && light -A 30 && sleep 0.1 && light -S $SLIGHT
+bindsym $ps3 exec grimshot --notify save area - | swappy -f -
+
+## Screenshot // Select window to screenshot // ## 
+#bindsym /usr/share/sway/scripts/grimshot save window - | swappy -f -
+
+#bindsym --release $ps1 exec grim $psf
+#bindsym --release $ps2 exec grim -g "$(slurp)" $psf
+#bindsym --release $ps3 exec grim - | wl-copy
+#bindsym --release $ps4 exec grim -g "$(slurp)" - | wl-copy
+# }}}
+
+#
+# {{{ transirar a preiranta-sequanta laborplaso
+set $nextwsp <-/-> prev/next workspace
+bindsym $mod+Control+w mode "$nextwsp"
+
+mode "$nextwsp" {
+  bindsym Left workspace prev
+  bindsym Right workspace next
+  bindsym Escape mode "default"
+}
+# }}}
+
+#
+# {{{ swichar skemo di laboro-plaso
+
+# split in horizontal orientation
+bindsym $mod+backslash split horizontal
+
+# split in vertical orientation
+bindsym $mod+minus split vertical
+
+set $layouts Layouts: s-stk t-tab g-tgl p-tgl splt v-vrt splt h-hrz splt
+bindsym $mod+Control+l mode "$layouts"
+
+mode "$layouts" {
+  # change container layout (stacked, tabbed, toggle split, toggle respective)
+  bindsym s layout stacking ; mode "default"
+  bindsym t layout tabbed ; mode "default"
+  bindsym g layout toggle ; mode "default"
+  bindsym p layout toggle split ; mode "default"
+
+  bindsym h layout splith ; mode "default"
+  bindsym backslash layout splith ; mode "default"
+  bindsym v layout splitv ; mode "default"
+  bindsym minus layout splitv ; mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+set $splits Split: t-tgl v-vrt h-hrz
+bindsym $mod+Control+s mode "$splits"
+
+mode "$splits" {
+  bindsym t split toggle ; mode "default"
+
+  # split in horizontal orientation
+  bindsym h split horizontal ; mode "default"
+  bindsym backslash split horizontal ; mode "default"
+
+  # split in vertical orientation
+  bindsym v split vertical ; mode "default"
+  bindsym minus split vertical ; mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+# }}}
+
+#
+# Resizing containers:
+#
+# {{{ resize window
+set $resize Resize - press 'r' to resize precizely
+set $preresize Resize precisely - press 'r' to resize +10px
+
+bindsym $mod+Control+r mode "$resize"
+
+# resize window (you can also use the mouse for that)
+mode "$resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym r mode "$preresize"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+mode "$preresize" {
+  bindsym h resize shrink width 1 px or 1 ppt
+  bindsym l resize grow width 1 px or 1 ppt
+  bindsym j resize grow height 1 px or 1 ppt
+  bindsym k resize shrink height 1 px or 1 ppt
+  bindsym Left resize shrink width 1 px or 1 ppt
+  bindsym Right resize grow width 1 px or 1 ppt
+  bindsym Down resize grow height 1 px or 1 ppt
+  bindsym Up resize shrink height 1 px or 1 ppt
+  bindsym r mode "$resize"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# }}}
+
+#
+# {{{ resize gaps
+set $mode_gaps Gaps: (o) outer, (i) inner, (s) set all
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_all All Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+  bindsym o      mode "$mode_gaps_outer"
+  bindsym i      mode "$mode_gaps_inner"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+  bindsym equal gaps inner current plus 5
+  bindsym minus gaps inner current minus 5
+  bindsym 0     gaps inner current set 0
+
+  bindsym plus gaps inner all plus 5
+  bindsym Shift+minus gaps inner all minus 5
+  bindsym Shift+0     gaps inner all set 0
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+  bindsym equal gaps outer current plus 5
+  bindsym minus gaps outer current minus 5
+  bindsym 0     gaps outer current set 0
+
+  bindsym plus gaps outer all plus 5
+  bindsym Shift+minus gaps outer all minus 5
+  bindsym Shift+0     gaps outer all set 0
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+mode "$mode_gaps_all" {
+  bindsym equal gaps current plus 5
+  bindsym minus gaps current minus 5
+  bindsym 0     gaps current set 0
+
+  bindsym plus gaps all plus 5
+  bindsym Shift+minus gaps all minus 5
+  bindsym Shift+0     gaps all set 0
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+# }}}
+
+#
+# {{{ suspend, hibernate actions
+set $suspend 's':Suspend 'h':Hibernate 'y':Hybrid-sleep
+bindsym $mod+Control+h mode "$suspend"
+
+mode "$suspend" {
+  bindsym s exec sudo loginctl suspend ; mode "default"
+  bindsym h exec sudo loginctl hibernate ; mode "default"
+  bindsym y exec sudo loginctl hybrid-sleep ; mode "default"
+  bindsym Escape mode "default"
+}
+# }}}
+
+#
+# {{{ kontrolo di skrenala lumo
+bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+
+set $chlight "Screen Light: -/+ <-/->  0 1..9(x0%)"
+bindsym $mod+s mode $chlight
+mode $chlight {
+  bindsym XF86MonBrightnessUp exec /usr/bin/light -A 5
+  bindsym XF86MonBrightnessDown exec /usr/bin/light -U 5
+  bindsym XF86AudioRaiseVolume exec /usr/bin/light -A 5
+  bindsym XF86AudioLowerVolume exec /usr/bin/light -U 5
+  bindsym equal exec /usr/bin/light -A 5
+  bindsym minus exec /usr/bin/light -U 5
+  bindsym Right exec /usr/bin/light -A 5
+  bindsym Left exec /usr/bin/light -U 5
+  bindsym XF86AudioMute exec /usr/bin/light -S 30
+  bindsym slash exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
+  bindsym Shift+slash exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
+  bindsym g exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
+  bindsym 0 exec /usr/bin/light -S 0
+  bindsym 1 exec /usr/bin/light -S 10
+  bindsym 2 exec /usr/bin/light -S 20
+  bindsym 3 exec /usr/bin/light -S 30
+  bindsym 4 exec /usr/bin/light -S 40
+  bindsym 5 exec /usr/bin/light -S 50
+  bindsym 6 exec /usr/bin/light -S 60
+  bindsym 7 exec /usr/bin/light -S 70
+  bindsym 8 exec /usr/bin/light -S 80
+  bindsym 9 exec /usr/bin/light -S 90
+  #bindsym --release grave exec sh -c 'sleep 1s && xset dpms force standby'
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+# }}}
+
+#for_window [class="^.*$"] border pixel $defbordpix
+#for_window [app_id="^.*$"] border pixel $defbordpix
+
+for_window [title="pulsemixer"] floating enable
+for_window [title="^Firefox.*Profile$"] floating enable
+for_window [title="^.*inentry.*$"] floating enable
+
+for_window [title="Alacritty"] resize set 1666 847
+
+#
+# Status Bar:
+# {{{
+# Read `man 5 sway-bar` for more information about this section.
+#bar {
+	#id bar1
+  #position top
+  ##tray_output none
+  ##binding_mode_indicator no
+  ##font Iosevka Mea Medium 13
+  ##workspace_buttons no
+  #workspace_buttons yes
+  ##swaybar_command waybar
+  #swaybar_command swaybar
+	##swaybar_command polybar top
+
+  ## When the status_command prints a new line to stdout, swaybar updates.
+  ## The default just shows the current date and time.
+  ##status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+  ##status_command -
+
+  ##colors {
+    ##statusline #ffffff
+    ##background #323232
+    ##inactive_workspace #32323200 #32323200 #5c5c5c
+  ##}
+#}
+
+#bar {
+	#id bar2
+  #position bottom
+  ##tray_output LVDS-1
+	#icon_theme kora
+  ##binding_mode_indicator yes
+  #binding_mode_indicator no
+  ##font Iosevka Mea Medium 14
+  #workspace_buttons no
+	##swaybar_command swaybar
+	#swaybar_command waybar -c $HOME/.config/waybar/tray.cfg -s $HOME/.config/waybar/tray.css
+
+  ## When the status_command prints a new line to stdout, swaybar updates.
+  ## The default just shows the current date and time.
+  ##status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+  ##status_command i3status -c ~/.config/i3status/config.1
+
+  ##colors {
+    ##statusline #ffffff
+    ##background #212121aa
+    ###background #32323200
+    ##binding_mode #2F343A #005533 #ffffff
+    ###inactive_workspace #32323200 #32323200 #5c5c5c
+  ##}
+#}
+###}}}
+
+#exec_always killall waybar, sleep 2
+#exec_always waybar -b bar1
+#exec_always waybar -c $HOME/.config/waybar/tray.cfg -s $HOME/.config/waybar/tray.css -b bar2
+
+exec_always waybar
+
+exec_always $scriptdir/run-i3-cycle-focus.sh
+exec dunst &
+
+include ~/.config/sway/gtk_set
+include ~/.config/sway/environment
+#include /etc/sway/config.d/*
+
+# vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=marker filetype=i3 :
