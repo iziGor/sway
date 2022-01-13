@@ -573,6 +573,7 @@ mode $chlight {
 for_window [title="pulsemixer"] floating enable
 for_window [title="^Firefox.*Profile$"] floating enable
 for_window [title="^.*inentry.*$"] floating enable
+for_window [title="Действия над файлами"] floating enable
 
 for_window [title="Alacritty"] resize set 1666 847
 
