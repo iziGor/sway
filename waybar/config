@@ -1,0 +1,221 @@
+// vim:ts=2:sw=2:et
+[
+  {
+    "name": "topbar",
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 38, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["custom/ws", "sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/fan", "temperature", "cpu", "memory", "custom/swap", "network", "custom/networktraffic", "pulseaudio", "keyboard-state", "sway/language", "battery", "clock"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    "keyboard-state": {
+        "device-path": "/dev/input/event0",
+        "numlock": true,
+        "capslock": true,
+        "format": "{name}{icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/window": {
+        "align": 0.0
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        // "format": "{usage}%<span color=\"#008080\"></span>",
+        "format": "{usage}%<span color=\"#008080\"></span>",
+        "tooltip": false,
+        "interval": 5,
+        "states": {
+          "10": 10,
+          "25": 25,
+          "40": 40,
+          "55": 55,
+          "70": 70,
+          "85": 85,
+          "95": 95 }
+    },
+    "memory": {
+        "format": "{}%<span color=\"#008080\"></span>"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C{icon}",
+        "format": "{temperatureC}°C<span color=\"#008080\">{icon}</span>",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}%<span color=\"#008080\">{icon}</span>",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interface": "wlan0", // (Optional) To force the use of this interface
+        // "format-wifi": "{essid} ({signalStrength}%) Up:{bandwidthUpBits} Dn:{bandwidthDownBits}<span color=\"#008080\"></span>",
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} <span color=\"#008080\"></span>",
+        "format-linked": "{ifname} (No IP) <span color=\"#008080\"></span>",
+        // "format-disconnected": "No Net ⚠",
+        "format-disconnected": "No Net",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}%<span color=\"#008080\">{icon}</span> {format_source}",
+        "format-bluetooth": "{volume}%<span color=\"#008080\">{icon}</span> {format_source}",
+        "format-bluetooth-muted": " <span color=\"#008080\">{icon}</span> {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}%<span color=\"#008080\"></span>",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true
+        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/swap": {
+        "format": "{}<span color=\"#008080\"></span>",
+        "return-type": "json",
+        "interval": 10,
+        /*"exec": "free | awk '/Swap/{printf(\"%.0f%\\nSwap used: %.1fMB\"), $3/$2*100, $3/1000}'"*/
+        "exec": "$HOME/.config/waybar/scripts/swap.sh"
+    },
+    "custom/ws": {
+        "exec": "python -u $HOME/.config/sway/scripts/tiling-indicator-2.py 2>> $HOME/logs/sway-waybar-ws.log"
+    },
+    "custom/fan": {
+        "format": "{}<span color=\"#008080\"></span>",
+        "interval": 10,
+        "exec": "$HOME/.config/waybar/scripts/system-fan-speed.sh"
+    },
+    "custom/networktraffic": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/network-traffic.sh"
+    }
+  },
+  {
+    "name": "bottombar",
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "modules-left": ["sway/mode"],
+    "modules-center": ["custom/scratch"],
+    "modules-right": ["custom/weather", "tray"],
+    "sway/mode": {
+        "format": "<span style=\"italic\"><b>{}</b></span>"
+    },
+    "custom/weather": {
+        "return-type": "json",
+        // "interval": 1800,
+        "interval": 30,
+        // "exec-if": "ping -qc1 wttr.in",
+        "exec": "$HOME/.config/waybar/scripts/weather.sh",
+        "on-click": "firefox-bin https://wttr.in"
+    },
+    "custom/scratch": {
+        "format": "{} ",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "$HOME/.config/waybar/scripts/scratchpad.sh",
+        "on-click": "$HOME/.config/sway/scripts/show_scratchpad.py"
+    },
+    "tray": {
+        "icon-size": 28,
+        "spacing": 10
+    }
+  }
+]

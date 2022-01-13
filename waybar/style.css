@@ -1,0 +1,390 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    /*font-family: Roboto, Noto Sans Condensed, Helvetica, Arial, sans-serif;*/
+    font-family: "Iosevka Mea", "Font Awesome 5 Free Solid";
+    font-size: 18px;
+    min-height: 0;
+    color: #bddfdf;
+}
+
+#window {
+    /*background-color: rgba(43, 48, 59, 0.5);*/
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+    /*color: #ffffff;*/
+    color: #64b37a;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar {
+    background-color: rgba(43, 48, 59, 0.8);
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+    /*color: #ffffff;*/
+    color: #318047;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+		background-color: transparent;
+}
+
+/*window#waybar.solo {*/
+		/*background-color: #FFFFFF;*/
+/*}*/
+
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+}
+
+.topbar {
+	  border-bottom: 3px solid rgba(100, 114, 125, 1);
+}
+
+.bottombar {
+	  border-top: 3px solid rgba(100, 114, 125, 1);
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    /*background-color: #64727D;*/
+    background-color: #005533;
+    /*border-bottom: 3px solid #ffffff;*/
+    border: 3px solid #00aa77;
+    border-radius: 20px;
+    padding: 0 5px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-fan,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 5px;
+    margin: 0 2px;
+    color: #87CEFA;
+    /*color: #bddfdf;*/
+    /*color: #ffffff;*/
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+	  font-weight: bolder;
+		font-size: 20px;
+		color: #32cd76;
+    /*background-color: #64727D;*/
+}
+
+#battery {
+    /*background-color: #ffffff;*/
+    /*color: #000000;*/
+}
+
+#battery.charging, #battery.plugged {
+    /*color: #ffffff;*/
+    /*background-color: #26A65B;*/
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu.10 {
+    /*background-color: #2ecc71;*/
+		color: #1aeeea;
+}
+
+#cpu.25 {
+    /*background-color: #2ecc71;*/
+		color: #00d700;
+}
+
+#cpu.40 {
+    /*background-color: #2ecc71;*/
+		/*color: #afafd7;*/
+		color: greenyellow;
+}
+
+#cpu.55 {
+    /*background-color: #2ecc71;*/
+		/*color: #dfffdf;*/
+		color: gold;
+}
+
+#cpu.70 {
+    /*background-color: #2ecc71;*/
+		/*color: #ffdfd7;*/
+		color: darkorange;
+}
+
+#cpu.85 {
+    /*background-color: #2ecc71;*/
+		/*color: #df5f00;*/
+		color: orangered;
+}
+
+#cpu.95 {
+    /*background-color: #2ecc71;*/
+		color: #ff0000;
+}
+
+#memory {
+    /*background-color: #9b59b6;*/
+}
+
+#disk {
+    /*background-color: #964B00;*/
+}
+
+#backlight {
+    /*background-color: #90b1b1;*/
+}
+
+#network {
+    /*background-color: #2980b9;*/
+}
+
+#network.disconnected {
+    /*background-color: #f53c3c;*/
+    background-color: #b10808;
+    background: rgba(177, 8, 8, 0.3);
+}
+
+#pulseaudio {
+    /*background-color: #f1c40f;*/
+    /*color: #000000;*/
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#temperature {
+    /*background-color: #f0932b;*/
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    /*background-color: #2980b9;*/
+    background-color: #222222;
+    padding: 0 3px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    /*background-color: #2d3436;*/
+    background-color: rgba(45, 52, 54, 0.5);
+}
+
+#idle_inhibitor.activated {
+    /*background-color: #ecf0f1;*/
+    background-color: rgba(236, 240, 241, 0.5);
+    color: #2d3436;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    /*background: #00b093;*/
+    background: #006677;
+    /*color: #740864;*/
+    color: #ffffff;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 22px;
+    font-size: 22px;
+}
+
+#keyboard-state {
+    /*background: #97e1ad;*/
+    /*background: #318047;*/
+    background: rgba(49, 128, 71, 0.5);
+		/*color: #000000;*/
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#custom-ws {
+    /*background-color: #66cc99;*/
+    /*margin-left: 0;*/
+    /*margin-right: 3px;*/
+    margin: 3px;
+		min-width: 22px;
+}
+
+#custom-scratch.0 {
+		color: darkgray;
+}
+
+#custom-scratch.1 {
+		color: deepskyblue;
+}
+
+#custom-scratch.2 {
+		color: lime;
+}
+
+#custom-scratch.3 {
+		color: gold;
+}
+
+#custom-scratch.4 {
+		color: plum;
+}
+
+#custom-scratch.5 {
+		color: orange;
+}
+
+#custom-scratch.6 {
+		color: red;
+}
+
+#custom-scratch.7 {
+		color: tomato;
+}
+
+#custom-networktraffic {
+    /*background-color: #66cc99;*/
+    /*margin-left: 0;*/
+    margin-right: 7px;
+}
+
+#custom-swap {
+    /*padding: 0 5px;*/
+    margin-right: 7px;
+    color: #87cefa;
+    /*color: #bddfdf;*/
+    /*color: #ffffff;*/
+}
+
+#custom-weather {
+    /*padding: 0 5px;*/
+    margin-right: 7px;
+}
+
