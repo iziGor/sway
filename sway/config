@@ -266,6 +266,7 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
 # por definitive krear ol presez suba klav-kombino
 #bindsym $mod+Shift+m move scratchpad
 bindsym $mod+a exec python3 $scriptdir/show_scratchpad.py
+bindsym Group2+$mod+Cyrillic_ef exec python3 $scriptdir/show_scratchpad.py
 bindsym $mod+Shift+a scratchpad show
 bindsym $mod+Control+a exec $scriptdir/show_scratchp.py
 bindsym $mod+$Alt+o exec $scriptdir/run-term-for-scratchpad.sh
