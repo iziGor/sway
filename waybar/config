@@ -174,7 +174,7 @@
         "exec": "$HOME/.config/waybar/scripts/swap.sh"
     },
     "custom/ws": {
-        "exec": "python -u $HOME/.config/sway/scripts/tiling-indicator-2.py 2>> $HOME/logs/sway-waybar-ws.log"
+        "exec": "python -u $HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"
     },
     "custom/fan": {
         "format": "{}<span color=\"#008080\"></span>",
