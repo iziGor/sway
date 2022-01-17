@@ -90,7 +90,7 @@ input * {
 input type:touchpad {
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
   tap enabled
-  pointer_accel 0.1
+  pointer_accel -0.1
   scroll_factor 0.3
 }
 
@@ -289,6 +289,9 @@ bindsym $mod+Control+e exec $scriptdir/nagmenu.sh
 
 # hotkeys help
 bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
+
+# toggle libinput scroll method
+bindsym $mod+Control+t exec $scriptdir/tgl-scroll-method-sway.py
 
 # ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
 # en rispektiva loki
@@ -581,7 +584,7 @@ for_window [title="Alacritty"] resize set 1666 847
 # Status Bar:
 # {{{
 # Read `man 5 sway-bar` for more information about this section.
-#bar {
+bar {
 	#id bar1
   #position top
   ##tray_output none
@@ -589,7 +592,7 @@ for_window [title="Alacritty"] resize set 1666 847
   ##font Iosevka Mea Medium 13
   ##workspace_buttons no
   #workspace_buttons yes
-  ##swaybar_command waybar
+  swaybar_command waybar
   #swaybar_command swaybar
 	##swaybar_command polybar top
 
@@ -603,7 +606,7 @@ for_window [title="Alacritty"] resize set 1666 847
     ##background #323232
     ##inactive_workspace #32323200 #32323200 #5c5c5c
   ##}
-#}
+}
 
 #bar {
 	#id bar2
@@ -636,7 +639,7 @@ for_window [title="Alacritty"] resize set 1666 847
 #exec_always waybar -b bar1
 #exec_always waybar -c $HOME/.config/waybar/tray.cfg -s $HOME/.config/waybar/tray.css -b bar2
 
-exec_always waybar
+#exec_always waybar
 
 exec_always $scriptdir/run-i3-cycle-focus.sh
 exec dunst &
