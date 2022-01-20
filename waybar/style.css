@@ -57,13 +57,13 @@ window#waybar.chromium {
     box-shadow: inset 0 -3px transparent;
 }
 
-.topbar {
-	  border-bottom: 3px solid rgba(100, 114, 125, 1);
-}
+/*.topbar {*/
+		/*border-bottom: 3px solid rgba(100, 114, 125, 1);*/
+/*}*/
 
-.bottombar {
-	  border-top: 3px solid rgba(100, 114, 125, 1);
-}
+/*.bottombar {*/
+		/*border-top: 3px solid rgba(100, 114, 125, 1);*/
+/*}*/
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
