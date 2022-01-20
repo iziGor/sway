@@ -292,6 +292,7 @@ bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
 
 # toggle libinput scroll method
 bindsym $mod+Control+t exec $scriptdir/tgl-scroll-method-sway.py
+bindsym Scroll_Lock exec $scriptdir/tgl-scroll-method-sway.py
 
 # ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
 # en rispektiva loki
