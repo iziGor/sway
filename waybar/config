@@ -207,7 +207,7 @@
         "on-click": "firefox-bin https://wttr.in"
     },
     "custom/scratch": {
-        "format": "{} ",
+        // "format": "{} ",
         "return-type": "json",
         "interval": 3,
         "exec": "$HOME/.config/waybar/scripts/scratchpad.sh",
