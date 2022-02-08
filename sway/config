@@ -34,9 +34,17 @@ set $termcmd xfce4-terminal --hide-menubar --hide-scrollbar
 set $ttitle --title
 
 set $scriptdir ${HOME}/.config/sway/scripts
-set $defbordpix 4
+set $defbordpix 3
+
+# altra nomi por laborplasi
+set $web   3
+set $mail  4
+set $chat  5
+set $pic   6
+set $media 8
 
 default_border pixel $defbordpix
+#default_floating_border pixel $defbordpix
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -276,7 +284,7 @@ bindsym $mod+$Alt+o exec $scriptdir/run-term-for-scratchpad.sh
 #for_window [title="pop"] move scratchpad, resize set 1737 933, move position 90 60
 
 #for_window [title="pop"] move scratchpad, resize set 1666 847
-for_window [title="pop"] move scratchpad, resize set 1728 942
+for_window [title="pop"] move scratchpad, resize set 1724 940, border pixel $defbordpix
 #for_window [title="pop"] move scratchpad, resize set 1726 958
 
 # por tiparo "Pragmata Pro 18"
