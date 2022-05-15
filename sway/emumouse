@@ -1,0 +1,312 @@
+# Muso-jerado per klavaro
+set $mouse_1 "kbd2mus: +1px ←↑↓→ 1 5 9 R r L m"
+set $mouse10 "kbd2mus: +10px ←↑↓→ 0 5 9 R r L m"
+#set $mouse20 "kbd2mus: +20px ←↑↓→ 0 1 3 5 9 R r L m"
+#set $mouse30 "kbd2mus: +30px ←↑↓→ 0 1 2 5 9 R r L m"
+set $mouse50 "kbd2mus: +50px ←↑↓→ 0 1 9 R r L m"
+set $mouse99 "kbd2mus: +100px ←↑↓→ 0 1 5 R r L m"
+set $mouse200 "kbd2mus: +200px ←↑↓→ 0 1 5 9 R r L m"
+set $mouse400 "kbd2mus: +400px ←↑↓→ 0 1 5 9 R r L m"
+bindsym $mod+z mode $mouse99
+mode $mouse_1 {
+bindsym Left exec ydotool mousemove -- -1 0
+bindsym Up exec ydotool mousemove -- 0 -1
+bindsym Down exec ydotool mousemove -- 0 1
+bindsym Right exec ydotool mousemove -- 1 0
+bindsym KP_Left exec ydotool mousemove -- -1 0
+bindsym KP_Up exec ydotool mousemove -- 0 -1
+bindsym KP_Down exec ydotool mousemove -- 0 1
+bindsym KP_Right exec ydotool mousemove -- 1 0
+bindsym KP_Home exec ydotool mousemove -- -1 -1
+bindsym KP_Prior exec ydotool mousemove -- 1 -1
+bindsym KP_Next exec ydotool mousemove -- 1 1
+bindsym KP_End exec ydotool mousemove -- -1 1
+bindsym Home exec ydotool mousemove -- -1 -1
+bindsym Prior exec ydotool mousemove -- 1 -1
+bindsym Next exec ydotool mousemove -- 1 1
+bindsym End exec ydotool mousemove -- -1 1
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+bindsym XF86AudioRaiseVolume exec ydotool click 5
+bindsym XF86AudioLowerVolume exec ydotool click 6
+bindsym Shift+Up exec ydotool click 5
+bindsym Shift+Down exec ydotool click 6
+bindsym u exec ydotool click 5
+bindsym d exec ydotool click 6
+bindsym 1 mode $mouse10
+bindsym 5 mode $mouse50
+bindsym 9 mode $mouse99
+bindsym plus mode $mouse10
+bindsym minus mode $mouse_1
+bindsym Control+Right mode $mouse10
+bindsym Control+Left mode $mouse_1
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+bindsym Escape mode "default"
+bindsym q mode "default"
+}
+mode $mouse10 {
+bindsym Left exec ydotool mousemove -- -10 0
+bindsym Up exec ydotool mousemove -- 0 -10
+bindsym Down exec ydotool mousemove -- 0 10
+bindsym Right exec ydotool mousemove -- 10 0
+bindsym KP_Left exec ydotool mousemove -- -10 0
+bindsym KP_Up exec ydotool mousemove -- 0 -10
+bindsym KP_Down exec ydotool mousemove -- 0 10
+bindsym KP_Right exec ydotool mousemove -- 10 0
+bindsym KP_Home exec ydotool mousemove -- -10 -10
+bindsym KP_Prior exec ydotool mousemove -- 10 -10
+bindsym KP_Next exec ydotool mousemove -- 10 10
+bindsym KP_End exec ydotool mousemove -- -10 10
+bindsym Home exec ydotool mousemove -- -10 -10
+bindsym Prior exec ydotool mousemove -- 10 -10
+bindsym Next exec ydotool mousemove -- 10 10
+bindsym End exec ydotool mousemove -- -10 10
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+#bindsym XF86AudioRaiseVolume exec ydotool click 4
+#bindsym XF86AudioLowerVolume exec ydotool click 5
+#bindsym k exec ydotool mousedown 1
+#bindsym e exec ydotool mousedown 3
+#bindsym Shift+Up exec ydotool click 4
+#bindsym Shift+Down exec ydotool click 5
+#bindsym u exec ydotool click 4
+#bindsym d exec ydotool click 5
+bindsym 0 mode $mouse_1
+bindsym 5 mode $mouse50
+bindsym 9 mode $mouse99
+bindsym plus mode $mouse50
+bindsym minus mode $mouse_1
+bindsym Control+Right mode $mouse50
+bindsym Control+Left mode $mouse_1
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+bindsym Escape mode "default"
+bindsym q mode "default"
+}
+#mode $mouse20 {
+#bindsym Left exec ydotool mousemove -- -20 0
+#bindsym Up exec ydotool mousemove -- 0 -20
+#bindsym Down exec ydotool mousemove -- 0 20
+#bindsym Right exec ydotool mousemove -- 20 0
+#bindsym KP_Enter exec ydotool click C0
+#bindsym Return exec ydotool click C0
+#bindsym space exec ydotool click C0
+#bindsym m exec ydotool click C2
+#bindsym r exec ydotool click C1
+#bindsym 0 mode $mouse_1
+#bindsym 1 mode $mouse10
+#bindsym 3 mode $mouse30
+#bindsym 5 mode $mouse50
+#bindsym 9 mode $mouse90
+#bindsym Escape mode "default"
+#}
+#mode $mouse30 {
+#bindsym Left exec ydotool mousemove -- -30 0
+#bindsym Up exec ydotool mousemove -- 0 -30
+#bindsym Down exec ydotool mousemove -- 0 30
+#bindsym Right exec ydotool mousemove -- 30 0
+#bindsym KP_Enter exec ydotool click C0
+#bindsym Return exec ydotool click C0
+#bindsym space exec ydotool click C0
+#bindsym m exec ydotool click C2
+#bindsym r exec ydotool click C1
+#bindsym 0 mode $mouse_1
+#bindsym 1 mode $mouse10
+#bindsym 2 mode $mouse20
+#bindsym 5 mode $mouse50
+#bindsym 9 mode $mouse90
+#bindsym Escape mode "default"
+#}
+mode $mouse50 {
+bindsym Left exec ydotool mousemove -- -50 0
+bindsym Up exec ydotool mousemove -- 0 -50
+bindsym Down exec ydotool mousemove -- 0 50
+bindsym Right exec ydotool mousemove -- 50 0
+bindsym KP_Left exec ydotool mousemove -- -50 0
+bindsym KP_Up exec ydotool mousemove -- 0 -50
+bindsym KP_Down exec ydotool mousemove -- 0 50
+bindsym KP_Right exec ydotool mousemove -- 50 0
+bindsym KP_Home exec ydotool mousemove -- -50 -50
+bindsym KP_Prior exec ydotool mousemove -- 50 -50
+bindsym KP_Next exec ydotool mousemove -- 50 50
+bindsym KP_End exec ydotool mousemove -- -50 50
+bindsym Home exec ydotool mousemove -- -50 -50
+bindsym Prior exec ydotool mousemove -- 50 -50
+bindsym Next exec ydotool mousemove -- 50 50
+bindsym End exec ydotool mousemove -- -50 50
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+#bindsym XF86AudioRaiseVolume exec ydotool click 4
+#bindsym XF86AudioLowerVolume exec ydotool click 5
+#bindsym Shift+Up exec ydotool click 4
+#bindsym Shift+Down exec ydotool click 5
+#bindsym u exec ydotool click 4
+#bindsym d exec ydotool click 5
+bindsym 0 mode $mouse_1
+bindsym 1 mode $mouse10
+bindsym 9 mode $mouse99
+bindsym plus mode $mouse99
+bindsym minus mode $mouse10
+bindsym Control+Right mode $mouse99
+bindsym Control+Left mode $mouse10
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+bindsym Escape mode "default"
+bindsym q mode "default"
+}
+mode $mouse99 {
+bindsym Left exec ydotool mousemove -- -100 0
+bindsym Up exec ydotool mousemove -- 0 -100
+bindsym Down exec ydotool mousemove -- 0 100
+bindsym Right exec ydotool mousemove -- 100 0
+bindsym KP_Left exec ydotool mousemove -- -100 0
+bindsym KP_Up exec ydotool mousemove -- 0 -100
+bindsym KP_Down exec ydotool mousemove -- 0 100
+bindsym KP_Right exec ydotool mousemove -- 100 0
+bindsym KP_Home exec ydotool mousemove -- -100 -100
+bindsym KP_Prior exec ydotool mousemove -- 100 -100
+bindsym KP_Next exec ydotool mousemove -- 100 100
+bindsym KP_End exec ydotool mousemove -- -100 100
+bindsym Home exec ydotool mousemove -- -100 -100
+bindsym Prior exec ydotool mousemove -- 100 -100
+bindsym Next exec ydotool mousemove -- 100 100
+bindsym End exec ydotool mousemove -- -100 100
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+#bindsym XF86AudioRaiseVolume exec ydotool click 4
+#bindsym XF86AudioLowerVolume exec ydotool click 5
+#bindsym Shift+Up exec ydotool click 4
+#bindsym Shift+Down exec ydotool click 5
+bindsym u exec ydotool click 0x05
+bindsym d exec ydotool click 0x06
+bindsym 0 mode $mouse_1
+bindsym 1 mode $mouse10
+bindsym 5 mode $mouse50
+bindsym plus mode $mouse200
+bindsym minus mode $mouse50
+bindsym Control+Right mode $mouse200
+bindsym Control+Left mode $mouse50
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+bindsym Escape mode "default"
+bindsym q mode "default"
+}
+mode $mouse200 {
+bindsym Left exec ydotool mousemove -- -200 0
+bindsym Up exec ydotool mousemove -- 0 -200
+bindsym Down exec ydotool mousemove -- 0 200
+bindsym Right exec ydotool mousemove -- 200 0
+bindsym KP_Left exec ydotool mousemove -- -200 0
+bindsym KP_Up exec ydotool mousemove -- 0 -200
+bindsym KP_Down exec ydotool mousemove -- 0 200
+bindsym KP_Right exec ydotool mousemove -- 200 0
+bindsym KP_Home exec ydotool mousemove -- -200 -200
+bindsym KP_Prior exec ydotool mousemove -- 200 -200
+bindsym KP_Next exec ydotool mousemove -- 200 200
+bindsym KP_End exec ydotool mousemove -- -200 200
+bindsym Home exec ydotool mousemove -- -200 -200
+bindsym Prior exec ydotool mousemove -- 200 -200
+bindsym Next exec ydotool mousemove -- 200 200
+bindsym End exec ydotool mousemove -- -200 200
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+#bindsym XF86AudioRaiseVolume exec ydotool click 4
+#bindsym XF86AudioLowerVolume exec ydotool click 5
+#bindsym Shift+Up exec ydotool click 4
+#bindsym Shift+Down exec ydotool click 5
+bindsym 0 mode $mouse_1
+bindsym 1 mode $mouse10
+bindsym 5 mode $mouse50
+bindsym 9 mode $mouse99
+bindsym plus mode $mouse400
+bindsym minus mode $mouse99
+bindsym Control+Right mode $mouse400
+bindsym Control+Left mode $mouse99
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+#bindsym u exec ydotool click 4
+#bindsym d exec ydotool click 5
+bindsym Escape mode "default"
+bindsym q mode "default"
+}
+mode $mouse400 {
+bindsym Left exec ydotool mousemove -- -400 0
+bindsym Up exec ydotool mousemove -- 0 -400
+bindsym Down exec ydotool mousemove -- 0 400
+bindsym Right exec ydotool mousemove -- 400 0
+bindsym KP_Left exec ydotool mousemove -- -400 0
+bindsym KP_Up exec ydotool mousemove -- 0 -400
+bindsym KP_Down exec ydotool mousemove -- 0 400
+bindsym KP_Right exec ydotool mousemove -- 400 0
+bindsym KP_Home exec ydotool mousemove -- -400 -400
+bindsym KP_Prior exec ydotool mousemove -- 400 -400
+bindsym KP_Next exec ydotool mousemove -- 400 400
+bindsym KP_End exec ydotool mousemove -- -400 400
+bindsym Home exec ydotool mousemove -- -400 -400
+bindsym Prior exec ydotool mousemove -- 400 -400
+bindsym Next exec ydotool mousemove -- 400 400
+bindsym End exec ydotool mousemove -- -400 400
+bindsym KP_Enter exec ydotool click C0
+bindsym Return exec ydotool click C0
+bindsym space exec ydotool click C0
+bindsym m exec ydotool click C2
+bindsym r exec ydotool click C1
+#bindsym XF86AudioRaiseVolume exec ydotool click 4
+#bindsym XF86AudioLowerVolume exec ydotool click 5
+#bindsym Shift+Up exec ydotool click 4
+#bindsym Shift+Down exec ydotool click 5
+#bindsym u exec ydotool click 4
+#bindsym d exec ydotool click 5
+bindsym 0 mode $mouse_1
+bindsym 1 mode $mouse10
+bindsym 5 mode $mouse50
+bindsym 9 mode $mouse99
+bindsym plus mode $mouse400
+bindsym minus mode $mouse200
+bindsym Control+Right mode $mouse400
+bindsym Control+Left mode $mouse200
+bindsym 2 mode $mouse200
+bindsym 4 mode $mouse400
+bindsym Control+2 mode $mouse50
+bindsym Control+3 mode $mouse99
+bindsym Control+4 mode $mouse200
+bindsym Control+5 mode $mouse400
+bindsym Escape mode "default"
+bindsym q mode "default"
+}

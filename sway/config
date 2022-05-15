@@ -655,6 +655,7 @@ exec dunst &
 
 include ~/.config/sway/gtk_set
 include ~/.config/sway/environment
+include ~/.config/sway/emumouse
 #include /etc/sway/config.d/*
 
 # vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=marker filetype=i3 :
