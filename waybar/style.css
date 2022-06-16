@@ -300,7 +300,8 @@ label:focus {
 #keyboard-state {
     /*background: #97e1ad;*/
     /*background: #318047;*/
-    background: rgba(49, 128, 71, 0.5);
+    /*background: rgba(49, 128, 71, 0.5);*/
+    background: rgba(0, 0, 0, 0.5);
 		/*color: #000000;*/
     padding: 0 0px;
     margin: 0 5px;
@@ -312,7 +313,8 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.5);
+    /*background: rgba(0, 0, 0, 0.5);*/
+    background: rgba(0, 102, 119, 0.7);
 }
 
 #custom-media {
