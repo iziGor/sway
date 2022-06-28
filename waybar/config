@@ -174,9 +174,10 @@
         "exec": "$HOME/.config/waybar/scripts/swap.sh"
     },
     "custom/ws": {
-        // "exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"
-        // "exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"
-        "exec": "$HOME/.config/waybar/scripts/tiling-indicator.py"
+        "format": "{}",
+        /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"*/
+        "exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"
+        /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py"*/
     },
     "custom/fan": {
         "format": "{}<span color=\"#008080\"></span>",
