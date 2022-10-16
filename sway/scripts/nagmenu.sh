@@ -19,8 +19,10 @@ LENMSG=$(( $(( $MSGWIDTH - $LENMSG )) / 2 ))
 #echo $LENMSG
 padprefix $LENMSG
 #echo $( echo -n "$PADPREF" | wc -m )
-EXPMSG="<span color='red'>${PADPREF}${EXPMSG}</span>"
-retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -lines 1 -columns 2 -i -width -30 )
+#EXPMSG="<span color='red'>${PADPREF}${EXPMSG}</span>"
+EXPMSG="<span color='yellow'>${PADPREF}${EXPMSG}</span>"
+#retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -lines 1 -columns 2 -i -width -30 )
+retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -theme-str "listview { lines: 2; }" -i )
 if [[ $retv == Yes ]] ; then
   #coproc rofi -e "$EXPMSG" -markup -width $MSGWIDTH
   coproc rofi -e "$EXPMSG" -markup -theme-str "#window { width: ${MSGWIDTH}ch; }"
