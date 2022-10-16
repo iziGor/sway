@@ -38,14 +38,14 @@ if __name__ == '__main__':
     if len(menu_args) and menu_args[0] == '--':
         menu_args = menu_args[1:]
 
+    win = ''
+    aLeaves = all_windows()
+
     # set default menu args for supported menus
     if basename(args.menu) == 'dmenu':
         menu_args += ['-i', '-f']
     elif basename(args.menu) == 'rofi':
-        menu_args += ['-show', '-dmenu', '-p', 'Win: ']
-
-    win = ''
-    aLeaves = all_windows()
+        menu_args += ['-show', '-dmenu', '-p', 'Win: ', '-theme-str', 'listview {{ lines: {}; }}'.format( min( len(aLeaves), 10 ) )]
 
     try:
         win = check_output([args.menu] + menu_args, input=bytes('\n'.join([e.get("name") for e in aLeaves]),
