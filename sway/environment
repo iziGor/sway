@@ -7,5 +7,6 @@ exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' \
 	  resume 'swaymsg "output * dpms on"'
 exec udiskie -Ant &
+exec foot -s &
 
 # vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=marker filetype=i3 :
