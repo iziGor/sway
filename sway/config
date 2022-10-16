@@ -112,6 +112,7 @@ font pango:Iosevka Mea Medium 14
     #bindsym $mod+Return exec $term -o font.size=18
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec $termcmd
+    bindsym $mod+Alt+Return exec footclient || notify-send -i dialog-error "footclient" "launch failed\nretcode $( echo $? )"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -184,7 +185,7 @@ font pango:Iosevka Mea Medium 14
     # We just use 1-10 as the default.
 
 # switch to workspace
-# {{{
+# {{{ switch to workspace
 #bindsym $mod+{1,2,3,4,5,6,7,8} workspace number {1,2,3,4,5,6,7,8}
 #bindsym $mod+{9,0} workspace number {9,10}:
 #bindsym $mod+Control+1 workspace $WrkSpcTV
@@ -229,7 +230,7 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
 # }}}
 
 #
-# Layout stuff:
+# {{{ Layout stuff:
 #
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
@@ -253,11 +254,11 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
 
     # Move focus to the parent container
     bindsym $mod+p focus parent
+# }}}
+
 #
-# Scratchpad:
+# {{{ Scratchpad:
 #
-# scratchpad
-# {{{ scratchpad
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -365,7 +366,8 @@ bindsym $ps2 exec grimshot --notify save active - | swappy -f -
 #bindsym $mod+Shift+Print exec $BIN_DIR/screenshots.sh region
 #bindsym $mod+Shift+Print exec grim -g "$(slurp -b '#AFAFAFAF' -c '#FF4F3FAF' -s '#00000000' -w 3 -d)" - | swappy -f -
 #bindsym $mod+Shift+Print exec /usr/share/sway/scripts/grimshot --notify save area - | swappy -f - && SLIGHT=$(light -G) && light -A 30 && sleep 0.1 && light -S $SLIGHT
-bindsym $ps3 exec grimshot --notify save area - | swappy -f -
+#bindsym $ps3 exec grimshot --notify save area - | swappy -f -
+bindsym $ps3 exec $scriptdir/get-screenshot-part.sh
 
 ## Screenshot // Select window to screenshot // ## 
 #bindsym /usr/share/sway/scripts/grimshot save window - | swappy -f -
