@@ -8,7 +8,6 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/ws", "sway/workspaces"],
-    "modules-center": ["sway/window"],
     "modules-right": ["custom/fan", "temperature", "cpu", "memory", "custom/swap", "network", "custom/networktraffic", "pulseaudio", "keyboard-state", "sway/language", "battery", "clock"],
     // Modules configuration
     // "sway/workspaces": {
@@ -35,9 +34,6 @@
             "locked": "",
             "unlocked": ""
         }
-    },
-    "sway/window": {
-        "align": 0.0
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -176,8 +172,8 @@
     "custom/ws": {
         "format": "{}",
         /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"*/
-        "exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"
-        /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py"*/
+        /*"exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"*/
+        "exec": "$HOME/.config/waybar/scripts/run-ti-script.sh"
     },
     "custom/fan": {
         "format": "<span color=\"#008080\"></span>{}",
@@ -197,9 +193,13 @@
     // "width": 1280, // Waybar width
     "modules-left": ["custom/scratch", "sway/mode"],
     // "modules-center": ["custom/scratch"],
+    "modules-center": ["sway/window"],
     "modules-right": ["custom/weather", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\"><b>{}</b></span>"
+    },
+    "sway/window": {
+        "align": 0.0
     },
     "custom/weather": {
         "return-type": "json",
