@@ -171,6 +171,7 @@
     },
     "custom/ws": {
         "format": "{}",
+        "return-type": "json",
         /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"*/
         /*"exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"*/
         "exec": "$HOME/.config/waybar/scripts/run-ti-script.sh"

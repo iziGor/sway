@@ -12,7 +12,9 @@ Config example:
 Waybar:
 
 "custom/ws": {
-    "exec": "python -u $HOME/.config/sway/scripts/tiling-indicator-2.py 2> /dev/null
+    "return-type": "json",
+    // "exec": "python -u $HOME/.config/sway/scripts/tiling-indicator-2.py 2> /dev/null"
+    "exec": "$HOME/.config/sway/scripts/run-ti-script.sh"
 }
 
 
@@ -66,7 +68,9 @@ def on_event(sway, _):
         ## polybar format output
         # print("%{{F#{}}}{}%{{F-}}".format(*layouts.get(layout, ("888800", "?"))))
         ## waybar format output
-        print("<span color='#{}'>{}</span>".format(*layouts.get(layout, ("888800", "?"))))
+        # print("<span color='#{}'>{}</span>".format(*layouts.get(layout, ("888800", "?"))))
+        print("{{\"text\":\"<span color='#{}'>{}</span>\", \"tooltip\":\" {} \"}}".format(
+            *layouts.get(layout, ("888800", "?")), layout))
     last = layout
 
 
