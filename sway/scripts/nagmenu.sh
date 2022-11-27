@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # vim:autoindent:smartindent:expandtab:smarttab:tabstop=2:softtabstop=2:shiftwidth=2
 
 #PADPREF=''
@@ -27,6 +27,8 @@ if [[ $retv == Yes ]] ; then
   coproc rofi -e "$EXPMSG" -markup -theme-str "textbox { horizontal-align: 0.5; }"
   sleep $DELAY
   pkill -f 'python-exec.*i3-cycle-focus'
-  pkill -u "${USER}" -x pipewire\|wireplumber 1>/dev/null 2>&1
+  if ! ( command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ); then
+    pkill -u "${USER}" -x pipewire\|wireplumber 1>/dev/null 2>&1
+  fi
   swaymsg exit
 fi
