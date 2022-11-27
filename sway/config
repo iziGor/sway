@@ -252,6 +252,9 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
+    # Toggle sticky flag of current floating window
+    swaymsg bindsym $mod+Shift+s sticky toggle
+
     # Move focus to the parent container
     bindsym $mod+p focus parent
 # }}}
