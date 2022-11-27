@@ -95,7 +95,7 @@ while true; do
     if [[ -z $ICONS ]]; then
       echo "<span color=\"#aaaa00\"></span>"
     else
-      echo "<span color=\"#008080\">$ICONS</span><span color=\"#444\">|</span><span color=\"#1aeeea\"> $(print_bytes $down)</span> / <span color=\"#8382eb\"> $(print_bytes $up)</span>"
+      echo "<span color=\"#008080\">$ICONS</span><span color=\"#444\">|</span><span color=\"#1aeeea\"> $(print_bytes $down)</span> <span color=\"#8382eb\"> $(print_bytes $up)</span>"
       # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
     fi
 
