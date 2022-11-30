@@ -105,8 +105,9 @@ input type:touchpad {
 font pango:Iosevka Mea Medium 14
 
 ### Key bindings
+
 #
-# Basics:
+# {{{ Basics:
 #
     # Start a terminal
     #bindsym $mod+Return exec $term -o font.size=18
@@ -132,8 +133,10 @@ font pango:Iosevka Mea Medium 14
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# }}}
+
 #
-# Moving around:
+#  {{{ Moving around:
 #
     # Move your focus around
     bindsym $mod+$left focus left
@@ -156,8 +159,10 @@ font pango:Iosevka Mea Medium 14
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+# }}}
+
 #
-# Workspaces:
+# {{{ Workspaces:
 #
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -183,6 +188,7 @@ font pango:Iosevka Mea Medium 14
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+# }}}
 
 # switch to workspace
 # {{{ switch to workspace
@@ -253,7 +259,7 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
     bindsym $mod+space focus mode_toggle
 
     # Toggle sticky flag of current floating window
-    swaymsg bindsym $mod+Shift+s sticky toggle
+    bindsym $mod+Shift+s sticky toggle
 
     # Move focus to the parent container
     bindsym $mod+p focus parent
@@ -541,9 +547,9 @@ set $suspend 's':Suspend 'h':Hibernate 'y':Hybrid-sleep
 bindsym $mod+Control+h mode "$suspend"
 
 mode "$suspend" {
-  bindsym s exec sudo loginctl suspend ; mode "default"
-  bindsym h exec sudo loginctl hibernate ; mode "default"
-  bindsym y exec sudo loginctl hybrid-sleep ; mode "default"
+  bindsym s exec $scriptdir/run-suspend.sh suspend ; mode "default"
+  bindsym h exec $scriptdir/run-suspend.sh hibernate ; mode "default"
+  bindsym y exec $scriptdir/run-suspend.sh hybrid-sleep ; mode "default"
   bindsym Escape mode "default"
 }
 # }}}
