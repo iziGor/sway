@@ -2,7 +2,7 @@ seat seat0 xcursor_theme Oxygen_Black 48
 bindsym $mod+F12 exec sh -c '( pgrep copyq || copyq --start-server ) && copyq show "&Clipper"'
 exec swaykbdd
 exec copyq --start-server
-exec $scripdir/run-pipewire.sh &
+exec $scriptdir/run-pipewire.sh &
 exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' \
 	  resume 'swaymsg "output * dpms on"'
