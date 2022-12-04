@@ -19,7 +19,7 @@ case "${1@L}" in
   ;;
   hybri*) SUSPMODE="hybrid-sleep"
   ;;
-  *) :
+  *) SUSPMODE=suspend
   ;;
 esac
 exec sudo $PROGCTL $SUSPMODE
