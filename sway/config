@@ -198,6 +198,19 @@ font pango:Iosevka Mea Medium 14
 #bindsym $mod+Control+1 workspace $WrkSpcTV output "HDMI1"
 #bindsym $mod+Control+{2,3} workspace $WrkSpc1{2,3}
 #bindsym $mod+Control+{4,5,6,7,8,9,0} workspace $WSc{4,5,6,7,8,9,0}
+
+#
+# {{{ transirar a preiranta-sequanta laborplaso
+set $nextwsp <-/-> prev/next workspace
+bindsym $mod+Control+w mode "$nextwsp"
+
+mode "$nextwsp" {
+  bindsym Left workspace prev
+  bindsym Right workspace next
+  bindsym Escape mode "default"
+}
+# }}}
+
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 bindsym $mod+w exec $scriptdir/focus-window.py
@@ -213,8 +226,8 @@ assign [app_id=".*[Tt]hunderbird.*"] $mail
 #assign $browsers  $web
 assign $browsers  3
 #for_window [class="^(telegram-desktop|Skype|Telegram-desktop|ViberPC|TelegramDesktop|finch|VK)$"] move container to workspace $chat, workspace $chat, focus
-for_window [class="^.*([Tt]elegram[-_]?[Dd]esktop|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
-for_window [app_id="^.*([Tt]elegram[-_]?[Dd]esktop|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
+for_window [class="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
+for_window [app_id="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
 
 #for_window [class="(?i)^(VirtualBox|vmware|[Qq]emu.*|spic).*$"] move container to workspace $vm, focus
 #for_window [class="Gimp"] move container to workspace $pic, workspace $pic, focus
@@ -385,18 +398,6 @@ bindsym $ps3 exec $scriptdir/get-screenshot-part.sh
 #bindsym --release $ps2 exec grim -g "$(slurp)" $psf
 #bindsym --release $ps3 exec grim - | wl-copy
 #bindsym --release $ps4 exec grim -g "$(slurp)" - | wl-copy
-# }}}
-
-#
-# {{{ transirar a preiranta-sequanta laborplaso
-set $nextwsp <-/-> prev/next workspace
-bindsym $mod+Control+w mode "$nextwsp"
-
-mode "$nextwsp" {
-  bindsym Left workspace prev
-  bindsym Right workspace next
-  bindsym Escape mode "default"
-}
 # }}}
 
 #
@@ -596,7 +597,7 @@ mode $chlight {
 for_window [title="pulsemixer"] floating enable
 for_window [title="^Firefox.*Profile$"] floating enable
 for_window [app_id="^.*inentry.*$"] floating enable
-for_window [title="Действия над файлами"] floating enable
+for_window [title="(Действия над файлами)|("File Operation Progress")"] floating enable
 
 for_window [title="Alacritty"] resize set 1666 847
 
