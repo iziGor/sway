@@ -111,9 +111,11 @@ font pango:Iosevka Mea Medium 14
 #
     # Start a terminal
     #bindsym $mod+Return exec $term -o font.size=18
-    bindsym $mod+Return exec $term
+    #bindsym $mod+Return exec $term
+    bindsym $mod+Return exec alacritty msg create-window -e $SHELL -i || $term -e $SHELL -i
     bindsym $mod+Shift+Return exec $termcmd
-    bindsym $mod+Alt+Return exec footclient || notify-send -i dialog-error "footclient" "launch failed\nretcode $( echo $? )"
+    #bindsym $mod+Alt+Return exec footclient || notify-send -i dialog-error "footclient" "launch failed\nretcode $( echo $? )"
+    bindsym $mod+Alt+Return exec footclient
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -274,8 +276,9 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
     # Toggle sticky flag of current floating window
     bindsym $mod+Shift+s sticky toggle
 
-    # Move focus to the parent container
+    # Move focus to the parent/child container
     bindsym $mod+p focus parent
+    bindsym $mod+Shift+p focus child
 # }}}
 
 #
@@ -563,28 +566,28 @@ bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
 set $chlight "Screen Light: -/+ <-/->  0 1..9(x0%)"
 bindsym $mod+s mode $chlight
 mode $chlight {
-  bindsym XF86MonBrightnessUp exec /usr/bin/light -A 5
-  bindsym XF86MonBrightnessDown exec /usr/bin/light -U 5
-  bindsym XF86AudioRaiseVolume exec /usr/bin/light -A 5
-  bindsym XF86AudioLowerVolume exec /usr/bin/light -U 5
-  bindsym equal exec /usr/bin/light -A 5
-  bindsym minus exec /usr/bin/light -U 5
-  bindsym Right exec /usr/bin/light -A 5
-  bindsym Left exec /usr/bin/light -U 5
-  bindsym XF86AudioMute exec /usr/bin/light -S 30
-  bindsym slash exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
-  bindsym Shift+slash exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
-  bindsym g exec notify-send -i mx-alerts "Current level" "$(/usr/bin/light -G)"
-  bindsym 0 exec /usr/bin/light -S 0
-  bindsym 1 exec /usr/bin/light -S 10
-  bindsym 2 exec /usr/bin/light -S 20
-  bindsym 3 exec /usr/bin/light -S 30
-  bindsym 4 exec /usr/bin/light -S 40
-  bindsym 5 exec /usr/bin/light -S 50
-  bindsym 6 exec /usr/bin/light -S 60
-  bindsym 7 exec /usr/bin/light -S 70
-  bindsym 8 exec /usr/bin/light -S 80
-  bindsym 9 exec /usr/bin/light -S 90
+  bindsym XF86MonBrightnessUp exec $scriptdir/set-screen-light.sh -A 5
+  bindsym XF86MonBrightnessDown exec $scriptdir/set-screen-light.sh -U 5
+  bindsym XF86AudioRaiseVolume exec $scriptdir/set-screen-light.sh -A 5
+  bindsym XF86AudioLowerVolume exec $scriptdir/set-screen-light.sh -U 5
+  bindsym equal exec $scriptdir/set-screen-light.sh -A 5
+  bindsym minus exec $scriptdir/set-screen-light.sh -U 5
+  bindsym Right exec $scriptdir/set-screen-light.sh -A 5
+  bindsym Left exec $scriptdir/set-screen-light.sh -U 5
+  bindsym XF86AudioMute exec $scriptdir/set-screen-light.sh -S 30
+  bindsym slash exec notify-send -i mx-alerts "Current level" "$(light -G)"
+  bindsym Shift+slash exec notify-send -i mx-alerts "Current level" "$(light -G)"
+  bindsym g exec notify-send -i mx-alerts "Current level" "$(light -G)"
+  bindsym 0 exec $scriptdir/set-screen-light.sh -S 0
+  bindsym 1 exec $scriptdir/set-screen-light.sh -S 10
+  bindsym 2 exec $scriptdir/set-screen-light.sh -S 20
+  bindsym 3 exec $scriptdir/set-screen-light.sh -S 30
+  bindsym 4 exec $scriptdir/set-screen-light.sh -S 40
+  bindsym 5 exec $scriptdir/set-screen-light.sh -S 50
+  bindsym 6 exec $scriptdir/set-screen-light.sh -S 60
+  bindsym 7 exec $scriptdir/set-screen-light.sh -S 70
+  bindsym 8 exec $scriptdir/set-screen-light.sh -S 80
+  bindsym 9 exec $scriptdir/set-screen-light.sh -S 90
   #bindsym --release grave exec sh -c 'sleep 1s && xset dpms force standby'
   bindsym Return mode "default"
   bindsym Escape mode "default"
