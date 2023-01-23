@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vim:autoindent:smartindent:expandtab:smarttab:tabstop=2:softtabstop=2:shiftwidth=2
+# vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 :
 
 PROGCTL=$( command -v systemctl  2>/dev/null)
 
