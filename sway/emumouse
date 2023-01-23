@@ -34,8 +34,8 @@ bindsym XF86AudioRaiseVolume exec ydotool click 5
 bindsym XF86AudioLowerVolume exec ydotool click 6
 bindsym Shift+Up exec ydotool click 5
 bindsym Shift+Down exec ydotool click 6
-bindsym u exec ydotool click 5
-bindsym d exec ydotool click 6
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 1 mode $mouse10
 bindsym 5 mode $mouse50
 bindsym 9 mode $mouse99
@@ -82,6 +82,8 @@ bindsym r exec ydotool click C1
 #bindsym Shift+Down exec ydotool click 5
 #bindsym u exec ydotool click 4
 #bindsym d exec ydotool click 5
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 0 mode $mouse_1
 bindsym 5 mode $mouse50
 bindsym 9 mode $mouse99
@@ -160,6 +162,8 @@ bindsym r exec ydotool click C1
 #bindsym Shift+Down exec ydotool click 5
 #bindsym u exec ydotool click 4
 #bindsym d exec ydotool click 5
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 0 mode $mouse_1
 bindsym 1 mode $mouse10
 bindsym 9 mode $mouse99
@@ -202,8 +206,10 @@ bindsym r exec ydotool click C1
 #bindsym XF86AudioLowerVolume exec ydotool click 5
 #bindsym Shift+Up exec ydotool click 4
 #bindsym Shift+Down exec ydotool click 5
-bindsym u exec ydotool click 0x05
-bindsym d exec ydotool click 0x06
+#bindsym u exec ydotool click 0x05
+#bindsym d exec ydotool click 0x06
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 0 mode $mouse_1
 bindsym 1 mode $mouse10
 bindsym 5 mode $mouse50
@@ -246,6 +252,10 @@ bindsym r exec ydotool click C1
 #bindsym XF86AudioLowerVolume exec ydotool click 5
 #bindsym Shift+Up exec ydotool click 4
 #bindsym Shift+Down exec ydotool click 5
+bindsym Shift+Up exec ydotool mousemove -w -- 0 1
+bindsym Shift+Down exec ydotool mousemove -w -- 0 -1
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 0 mode $mouse_1
 bindsym 1 mode $mouse10
 bindsym 5 mode $mouse50
@@ -293,6 +303,8 @@ bindsym r exec ydotool click C1
 #bindsym Shift+Down exec ydotool click 5
 #bindsym u exec ydotool click 4
 #bindsym d exec ydotool click 5
+bindsym u exec ydotool mousemove -w -- 0 1
+bindsym d exec ydotool mousemove -w -- 0 -1
 bindsym 0 mode $mouse_1
 bindsym 1 mode $mouse10
 bindsym 5 mode $mouse50
