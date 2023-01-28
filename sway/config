@@ -220,7 +220,7 @@ bindsym $mod+Shift+w exec rofi -modi 'switch:~/.config/sway/scripts/switch_works
 # }}}
 
 # {{{ workplaces assignment
-set $browsers [class="(Firefox|Conkeror|Iceweasel|Icecat|Navigator|Waterfox|Vimprobable2|Chromium|brave|Chromium-www|Yandex-browser-beta|Opera|Dwb|Tor Browser|qutebrowser)"]
+set $browsers [class="([Ff]irefox|Conkeror|Iceweasel|Icecat|Navigator|Waterfox|Vimprobable2|Chromium|brave|Chromium-www|Yandex-browser-beta|Opera|Dwb|Tor Browser|qutebrowser)"]
 
 assign [class=".*[Tt]hunderbird.*"] $mail
 assign [app_id=".*[Tt]hunderbird.*"] $mail
