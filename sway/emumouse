@@ -45,6 +45,7 @@ bindsym Control+Right mode $mouse10
 bindsym Control+Left mode $mouse_1
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
@@ -93,6 +94,7 @@ bindsym Control+Right mode $mouse50
 bindsym Control+Left mode $mouse_1
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
@@ -173,6 +175,7 @@ bindsym Control+Right mode $mouse99
 bindsym Control+Left mode $mouse10
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
@@ -219,6 +222,7 @@ bindsym Control+Right mode $mouse200
 bindsym Control+Left mode $mouse50
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
@@ -266,6 +270,7 @@ bindsym Control+Right mode $mouse400
 bindsym Control+Left mode $mouse99
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
@@ -315,6 +320,7 @@ bindsym Control+Right mode $mouse400
 bindsym Control+Left mode $mouse200
 bindsym 2 mode $mouse200
 bindsym 4 mode $mouse400
+bindsym Control+1 mode $mouse10
 bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
