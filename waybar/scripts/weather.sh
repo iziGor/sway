@@ -3,13 +3,26 @@
 
 cachedir=~/.cache/misc
 locfile=${0##*/}-location
+loclist="locations.lst"
 
 if [ ! -d $cachedir ]; then
     mkdir -p $cachedir
 fi
 
 if [ ! -f $cachedir/$locfile ]; then
-    touch $cachedir/$locfile
+    echo Moscow >$cachedir/$locfile
+fi
+
+if [ ! -f $cachedir/$loclist ]; then
+    echo Moscow Москва >$cachedir/$loclist
+fi
+
+if [[ "${1@L}" == "setloc" ]]; then
+  location="$(cat $cachedir/$loclist | rofi -dmenu -p 'Select location:' | awk '{print $1}')"
+  if [[ -n $location ]]; then
+    echo $location >$cachedir/$locfile
+  fi
+  exit
 fi
 
 if [[ -z "$1" ]]; then
