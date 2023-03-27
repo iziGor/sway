@@ -208,7 +208,8 @@
         "interval": 30,
         // "exec-if": "ping -qc1 wttr.in",
         "exec": "$HOME/.config/waybar/scripts/weather.sh",
-        "on-click": "firefox-bin https://wttr.in"
+        // "on-click": "firefox-bin https://wttr.in",
+        "on-click":  "$HOME/.config/waybar/scripts/weather.sh setloc"
     },
     "custom/scratch": {
         // "format": "{} ",
