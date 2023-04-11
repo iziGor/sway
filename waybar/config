@@ -150,6 +150,28 @@
         },
         "on-click": "pavucontrol"
     },
+    "wireplumber": {
+        // "scroll-step": 1, // %, can be a float
+        // "format": "<span color=\"#008080\">{icon}</span>{volume}% {format_source}",
+        "format": "<span color=\"#008080\">{icon}</span>{volume}%",
+        // "format-bluetooth": "<span color=\"#008080\">{icon}</span>{volume}% {format_source}",
+        // "format-bluetooth-muted": " <span color=\"#008080\">{icon}</span> {format_source}",
+        "format-muted": "",
+        // "format-muted": " {format_source}",
+        // "format-source": "<span color=\"#008080\"></span>{volume}%",
+        // "format-source-muted": "",
+        // "format-icons": {
+        //     "headphone": "",
+        //     "hands-free": "",
+        //     "headset": "",
+        //     "phone": "",
+        //     "portable": "",
+        //     "car": "",
+        //     "default": ["", "", ""]
+        // },
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol"
+    },
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",

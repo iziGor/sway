@@ -99,6 +99,7 @@ window#waybar.chromium {
 #backlight,
 #network,
 #pulseaudio,
+#wireplumber,
 #custom-media,
 #custom-fan,
 #tray,
@@ -232,6 +233,11 @@ label:focus {
 }
 
 #pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#wireplumber.muted {
     background-color: #90b1b1;
     color: #2a5c45;
 }
