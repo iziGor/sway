@@ -355,11 +355,11 @@ bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
 bindsym XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86AudioMute exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
 #bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
-#bindsym XF86AudioPlay		exec mpc -h mysvr -p 6600 toggle
-bindsym Control+XF86AudioPlay		exec $scriptdir/mpd-ctrl.sh current
-bindsym XF86AudioPlay		exec $scriptdir/mpd-ctrl.sh toggle
-bindsym XF86AudioNext		exec $scriptdir/mpd-ctrl.sh next
-bindsym XF86AudioPrev		exec $scriptdir/mpd-ctrl.sh prev
+#bindsym XF86AudioPlay    exec mpc -h mysvr -p 6600 toggle
+bindsym Control+XF86AudioPlay   exec $scriptdir/mpd-ctrl.sh current
+bindsym XF86AudioPlay   exec $scriptdir/mpd-ctrl.sh toggle
+bindsym XF86AudioNext   exec $scriptdir/mpd-ctrl.sh next
+bindsym XF86AudioPrev   exec $scriptdir/mpd-ctrl.sh prev
 # }}}
 
 # {{{ Making screenshot
@@ -609,7 +609,7 @@ for_window [title="Alacritty"] resize set 1666 847
 # {{{
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-	#id bar1
+  #id bar1
   #position top
   ##tray_output none
   ##binding_mode_indicator no
@@ -618,7 +618,7 @@ bar {
   #workspace_buttons yes
   swaybar_command waybar
   #swaybar_command swaybar
-	##swaybar_command polybar top
+  ##swaybar_command polybar top
 
   ## When the status_command prints a new line to stdout, swaybar updates.
   ## The default just shows the current date and time.
@@ -633,16 +633,16 @@ bar {
 }
 
 #bar {
-	#id bar2
+  #id bar2
   #position bottom
   ##tray_output LVDS-1
-	#icon_theme kora
+  #icon_theme kora
   ##binding_mode_indicator yes
   #binding_mode_indicator no
   ##font Iosevka Mea Medium 14
   #workspace_buttons no
-	##swaybar_command swaybar
-	#swaybar_command waybar -c $HOME/.config/waybar/tray.cfg -s $HOME/.config/waybar/tray.css
+  ##swaybar_command swaybar
+  #swaybar_command waybar -c $HOME/.config/waybar/tray.cfg -s $HOME/.config/waybar/tray.css
 
   ## When the status_command prints a new line to stdout, swaybar updates.
   ## The default just shows the current date and time.
