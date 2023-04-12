@@ -352,9 +352,13 @@ bindsym XF86AudioLowerVolume exec $scriptdir/snd_vol.sh '-5%'
 bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
 #bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
 bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
+
 bindsym XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86AudioMute exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
+bindsym Control+XF86Tools exec foot -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
+bindsym Shift+Control+XF86Tools exec alacritty -o window.opacity=0.7 --title "pulsemixer" -e 'pulsemixer'
 #bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
+
 #bindsym XF86AudioPlay    exec mpc -h mysvr -p 6600 toggle
 bindsym Control+XF86AudioPlay   exec $scriptdir/mpd-ctrl.sh current
 bindsym XF86AudioPlay   exec $scriptdir/mpd-ctrl.sh toggle
