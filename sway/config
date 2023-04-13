@@ -603,6 +603,7 @@ mode $chlight {
 
 for_window [title="pulsemixer"] floating enable
 for_window [title="^Firefox.*Profile$"] floating enable
+for_window [title="^Password.*Thunderbird$"] floating enable
 for_window [app_id="^.*inentry.*$"] floating enable
 for_window [title="(Действия над файлами)|(File Operation Progress)"] floating enable
 
