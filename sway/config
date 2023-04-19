@@ -353,9 +353,9 @@ bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
 #bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
 bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
 
-bindsym XF86Tools exec foot -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
+bindsym XF86Tools exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
-bindsym Control+XF86AudioMute exec foot -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
+bindsym Control+XF86AudioMute exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
 bindsym Shift+Control+XF86Tools exec alacritty -o window.opacity=0.7 --title "pulsemixer" -e 'pulsemixer'
 #bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
 
