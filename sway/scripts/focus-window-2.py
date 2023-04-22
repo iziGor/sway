@@ -15,16 +15,11 @@ def all_windows():
     aNodes = []
     for ws in tree.workspaces():
         for e in ws.nodes + ws.floating_nodes:
-            coname = e.name
-            wsname = e.workspace().name
-            con_id = e.id
-            aNodes.append({"name": "{}: {}".format(wsname, coname), "con_id": con_id})
-
-        # for e in ws.floating_nodes:
             # coname = e.name
             # wsname = e.workspace().name
             # con_id = e.id
-            # aNodes.append({"name": "{}: {}".format(wsname, coname), "con_id": con_id})
+            aNodes.append({ "name": "{}: {}".format( e.workspace().name, e.name )
+                          , "con_id": e.id })
 
     return aNodes
 
