@@ -14,7 +14,7 @@ def all_windows():
     tree = i3.get_tree()
     aNodes = []
     for ws in tree.workspaces():
-        for e in ws.nodes + ws.floating_nodes:
+        for e in ws.leaves() + ws.floating_nodes:
             # coname = e.name
             # wsname = e.workspace().name
             # con_id = e.id
