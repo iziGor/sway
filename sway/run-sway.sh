@@ -85,19 +85,21 @@ export  XDG_CURRENT_DESKTOP=sway
 export  XDG_SESSION_TYPE=wayland
 #export  MOZ_ENABLE_WAYLAND=1
 
-export I3CMDHF=$HOME/tmp/i3-cmd-history
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORMTHEME=qt5ct
+export  I3CMDHF=$HOME/tmp/i3-cmd-history
+export  QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export  QT_QPA_PLATFORM=wayland
+export  QT_QPA_PLATFORMTHEME=qt5ct
 #export WLR_DRM_DEVICES="/dev/dri/card1"
 #export DRI_PRIME=1
-LOGFILE="$HOME/logs/sway.log"
-unset XSESSION
+unset   XSESSION
 
 export  XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 
 # для работы tray в waybar
 #export XDG_CURRENT_DESKTOP=Unity
+
+LOGFILE="$HOME/logs/sway.log"
 
 if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ; then
   # we are in systemd environment
