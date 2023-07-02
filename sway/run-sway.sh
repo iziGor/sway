@@ -99,14 +99,21 @@ export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 # для работы tray в waybar
 #export XDG_CURRENT_DESKTOP=Unity
 
+# делаем уникальный сокет для sway
+sway_socket_file=$( mktemp -t --tmpdir="${XDG_RUNTIME_DIR:-/tmp}" --suffix=".sock" "sway-ipc.XXXX" )
+export SWAYSOCK=${sway_socket_file}
+
 LOGFILE="$HOME/logs/sway.log"
 
 if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ; then
   # we are in systemd environment
-  exec sway >>${LOGFILE} 2>&1
+  #exec sway >>${LOGFILE} 2>&1
+  # нужно вернуться в скрипт для удаления сокет-файла
+  sway >>${LOGFILE} 2>&1
 else
   # we are in non-systemd environment (openrc?)
   #dbus-run-session sway >>${LOGFILE} 2>&1
   dbus-launch --exit-with-session sway >>${LOGFILE} 2>&1
 fi
 
+rm -f "${sway_socket_file}"
