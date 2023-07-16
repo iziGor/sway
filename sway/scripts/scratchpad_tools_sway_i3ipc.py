@@ -1,44 +1,23 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-#
 # vim:autoindent:smartindent:expandtab:smarttab:tabstop=4:softtabstop=4:shiftwidth=4:foldmethod=marker
 
 import i3ipc as i3
-import pprint
-# import shlex
-# import quickswitch as qsw
-# from json import loads
-from subprocess import Popen, PIPE, call
+from subprocess import Popen, PIPE
 from collections import OrderedDict
 
-from py3status import exceptions
 
 SPREFIX = "(hidden):"
 
-# basestring does not exist in python3
-try:
-    basestring
-except NameError:
-    basestring = str
-
-
-# importacita ek quickswitch.py
-def check_dmenu():
-    '''Check if dmenu is available.'''
-    devnull = open(os.devnull)
-    retcode = call(["which", "dmenu"],
-                    stdout=devnull,
-                    stderr=devnull)
-    return True if retcode == 0 else False
 
 def dmenu(options, dmenu):
     '''Call dmenu with a list of options.'''
 
-    cmd = Popen(dmenu,
-                    shell=True,
-                    stdin=PIPE,
-                    stdout=PIPE,
-                    stderr=PIPE)
+    cmd = Popen( dmenu
+               , shell=True
+               , stdin=PIPE
+               , stdout=PIPE
+               , stderr=PIPE
+               )
     stdout, _ = cmd.communicate('\n'.join(options).encode('utf-8'))
     return stdout.decode('utf-8').strip('\n')
 
@@ -143,7 +122,7 @@ def rename_nonunique(windows):
     window_names = [ "{} : {}".format(window.get('conname', '?'), render_title(window)) for window in windows]
     for name in window_names:
         count = window_names.count(name)
-        if count > 1:
+        if  count > 1:
             for i in range(count):
                 index = window_names.index(name)
                 window_names[index] = "{}[{}]".format(name, i + 1)
@@ -198,7 +177,8 @@ def select_from_opened_sw():
         get_opened_scratched_windows(), default_pad_len=0 ), focus ) ))
 
 
-if __name__ == "__main__":
+if  __name__ == "__main__":
+    import pprint
     tree = i3.Connection().get_tree()
     scratch_con = tree.scratchpad()
     count = len(scratch_con.focus)
