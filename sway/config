@@ -50,7 +50,6 @@ default_border pixel $defbordpix
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-bindsym $mod+r exec rofi -show run
 
 ### Output configuration
 #
@@ -122,6 +121,8 @@ font pango:Iosevka Mea Medium 14
 
     # Start your launcher
     #bindsym $mod+d exec $menu
+    bindsym $mod+d exec rofi -show drun
+    bindsym $mod+r exec rofi -show run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
