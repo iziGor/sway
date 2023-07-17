@@ -21,7 +21,8 @@ EXPMSG="sway finos sua laboro pos $DELAY sekundi."
 #EXPMSG="<span color='yellow'>${PADPREF}${EXPMSG}</span>"
 EXPMSG="<span color='yellow'>${EXPMSG}</span>"
 #retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -lines 1 -columns 2 -i -width -30 )
-retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -theme-str "listview { lines: 2; }" -i )
+retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -theme-str "* { horizontal-align: 0.5; } window { width: 20%; } listview { lines: 1; columns: 2; }" -i )
+#retv=$( echo 'Yes|No' | rofi -dmenu -sep '|' -p "" -mesg "$INPMSG" -theme-str "window { width: 20%; } textbox { horizontal-align: 0.5; } listview { lines: 1; columns: 2; } element-text { horizontal-align: 0.5; }" )
 if [[ $retv == Yes ]] ; then
   #coproc rofi -e "$EXPMSG" -markup -width $MSGWIDTH
   coproc rofi -e "$EXPMSG" -markup -theme-str "textbox { horizontal-align: 0.5; }"
