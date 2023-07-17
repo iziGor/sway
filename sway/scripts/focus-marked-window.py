@@ -8,8 +8,6 @@ from os.path import basename
 from sys import exit
 import i3ipc
 
-i3 = i3ipc.Connection()
-
 def all_windows():
     ''' obteno dil tota listo markizita fenestri, inkluzante kladala '''
     tree = i3.get_tree()
@@ -39,7 +37,7 @@ def make_choice_string( e ):
             # ) )
     # return aRet
 
-if __name__ == '__main__':
+if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Print the names of the focused window of each workspace.')
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
@@ -47,13 +45,11 @@ if __name__ == '__main__':
     # parser.parse_args()
     (args, menu_args) = parser.parse_known_args()
 
-    if len(menu_args) and menu_args[0] == '--':
+    if  len(menu_args) and menu_args[0] == '--':
         menu_args = menu_args[1:]
 
-    win = ''
-
     # set default menu args for supported menus
-    if basename(args.menu) == 'dmenu':
+    if  basename(args.menu) == 'dmenu':
         menu_args += ['-i', '-f']
     elif basename(args.menu) == 'rofi':
         # menu_args += ['-show', '-dmenu', '-p', 'Win: ', '-theme-str', 'listview {{ lines: {}; }}'.format( min( len(aNodes), 10 ) )]
@@ -61,6 +57,9 @@ if __name__ == '__main__':
                      , '-p', 'Enter mark:'
                      , '-theme-str', 'inputbar { border-radius: 15px 15px 15px 15px; }']
                      # , '-theme-str', 'inputbar { border-radius: 15px 15px 15px 15px; } listview { enabled: false; }']
+
+    win = ''
+    i3 = i3ipc.Connection()
 
     if  args.focus:
         aNodes = all_windows()
@@ -88,7 +87,7 @@ if __name__ == '__main__':
         except CalledProcessError as e:
             exit(e.returncode)
 
-        if not win:
+        if  not win:
             # nothing to do
             exit(0)
 
