@@ -3,7 +3,7 @@
 # vim: autoindent smartindent expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=marker:
 
 from argparse import ArgumentParser
-from subprocess import run, CalledProcessError, PIPE
+from subprocess import run, CalledProcessError
 from os.path import basename
 from sys import exit
 import i3ipc
