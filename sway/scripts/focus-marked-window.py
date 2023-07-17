@@ -11,6 +11,7 @@ import i3ipc
 i3 = i3ipc.Connection()
 
 def all_windows():
+    ''' obteno dil tota listo markizita fenestri, inkluzante kladala '''
     tree = i3.get_tree()
     aNodes = []
     for e in tree.find_marked():
@@ -22,6 +23,7 @@ def all_windows():
     return aNodes
 
 def make_choice_string( e ):
+    ''' kompozo do lineo kun informajo pri fenestro markizita '''
     return '{}: \"{}\" marks={}'.format(
         '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
         e.name,
