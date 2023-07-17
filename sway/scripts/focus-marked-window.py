@@ -38,7 +38,7 @@ def make_choice_string( e ):
     # return aRet
 
 if  __name__ == '__main__':
-    parser = ArgumentParser(description = 'Print the names of the focused window of each workspace.')
+    parser = ArgumentParser(description = 'Operacas marki dil fenestri')
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
     parser.add_argument('--mark', action='store_true', help='Set mark on window')
