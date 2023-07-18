@@ -60,9 +60,9 @@ year :: 2021
 
 """
 
-import i3ipc
+from i3ipc import Connection
 
-i3 = i3ipc.Connection()
+i3 = Connection()
 last = ''
 
 # Font Awesome 5 Free:style=Solid
