@@ -67,7 +67,7 @@ if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Operacas marki dil fenestri')
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
-    parser.add_argument('--focus-1ch', action='store_true', help='Switch to window marked in one character')
+    parser.add_argument('--focus-1char', action='store_true', help='Switch to window marked in one character')
     parser.add_argument('--mark', action='store_true', help='Set string-mark on window')
     parser.add_argument('--mark-1char', action='store_true', help='Set one-character-mark on current window')
     parser.add_argument('--add', action='store_true', help='Add-mode on setting of current windows mark')
@@ -126,7 +126,7 @@ if  __name__ == '__main__':
         # nothing to do more
         exit(0)
 
-    if  args.focus_1ch:
+    if  args.focus_1char:
         if  len(all_windows()) == 0:
             show_not_found_message()
             exit(0)
