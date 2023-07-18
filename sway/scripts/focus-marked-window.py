@@ -37,6 +37,11 @@ def make_choice_string( e ):
             # ) )
     # return aRet
 
+def show_not_found_message():
+    menu_args = [ '-e', 'Marked windows not found'
+                , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
+    run( [args.menu] + menu_args )
+
 def clear_all_marks_of_current_window( id ):
     # kompleta efaco di omna marki che fenestro aktualigita,
     # qua atingesas per remplasigar omna marki dil fenestro
@@ -91,9 +96,7 @@ if  __name__ == '__main__':
     if  args.focus:
         aNodes = all_windows()
         if  len(aNodes) == 0:
-            menu_args = [ '-e', 'Marked windows not found'
-                        , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
-            run( [args.menu] + menu_args )
+            show_not_found_message()
             exit(0)
 
         menu_args = [ '-dmenu'
@@ -125,9 +128,7 @@ if  __name__ == '__main__':
 
     if  args.focus_1ch:
         if  len(all_windows()) == 0:
-            menu_args = [ '-e', 'Marked windows not found'
-                        , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
-            run( [args.menu] + menu_args )
+            show_not_found_message()
             exit(0)
 
         menu_args = [ '-dmenu'
