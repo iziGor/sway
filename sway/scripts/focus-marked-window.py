@@ -53,6 +53,7 @@ if  __name__ == '__main__':
     parser.add_argument('--add', action='store_true', help='Add-mode on setting of current windows mark')
     parser.add_argument('--replace', action='store_true', help='Replace-mode on setting of current windows mark')
     parser.add_argument('--clear', action='store_true', help='Clear-mode on setting of current windows mark')
+    parser.add_argument('--clear-all', action='store_true', help='Clear all marks on current window')
     # parser.parse_args()
     (args, menu_args) = parser.parse_known_args()
 
@@ -128,7 +129,7 @@ if  __name__ == '__main__':
         # nothing to do more
         exit(0)
 
-    if  args.clear:
+    if  args.clear_all:
         clear_all_marks_of_current_window( i3.get_tree().find_focused().id )
 
         # nothing to do more
