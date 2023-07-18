@@ -52,7 +52,7 @@ def clear_all_marks_of_current_window( id ):
 def set_mark( menuparams ):
     tree = i3.get_tree()
     curr_win = tree.find_focused().id
-    mrk = run( [args.menu] + menuparams_args
+    mrk = run( [args.menu] + menuparams
              , input=''
              , check=True
              , capture_output=True
