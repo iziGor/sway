@@ -98,14 +98,14 @@ if  __name__ == '__main__':
         except CalledProcessError as e:
             exit(e.returncode)
 
-        if  not win:
-            # nothing to do
-            exit(0)
+        if  win:
+            for e in aNodes:
+                if  win == e.get("name").strip():
+                    i3.command("[con_id=%s] focus" % e.get("con_id"))
+                    break
 
-        for e in aNodes:
-            if  win == e.get("name").strip():
-                i3.command("[con_id=%s] focus" % e.get("con_id"))
-                break
+        # nothing to do more
+        exit(0)
 
     if  args.mark:
         tree = i3.get_tree()
@@ -125,6 +125,12 @@ if  __name__ == '__main__':
         if  mrk:
             i3.command( f"[con_id={curr_win}] mark {mrk}" )
 
+        # nothing to do more
+        exit(0)
+
     if  args.clear:
         clear_all_marks_of_current_window( i3.get_tree().find_focused().id )
+
+        # nothing to do more
+        exit(0)
 
