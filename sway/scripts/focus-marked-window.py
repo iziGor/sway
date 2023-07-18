@@ -50,6 +50,7 @@ if  __name__ == '__main__':
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
     parser.add_argument('--mark', action='store_true', help='Set mark on window')
+    parser.add_argument('--mark-1char', action='store_true', help='Set one-character-mark on current window')
     parser.add_argument('--add', action='store_true', help='Add-mode on setting of current windows mark')
     parser.add_argument('--replace', action='store_true', help='Replace-mode on setting of current windows mark')
     parser.add_argument('--clear', action='store_true', help='Clear-mode on setting of current windows mark')
@@ -108,7 +109,7 @@ if  __name__ == '__main__':
         # nothing to do more
         exit(0)
 
-    if  args.mark:
+    if  args.mark_1char:
         tree = i3.get_tree()
         curr_win = tree.find_focused().id
         menu_args = [ '-dmenu'
@@ -123,8 +124,9 @@ if  __name__ == '__main__':
                  , capture_output=True
                  , encoding='UTF-8'
                  ).stdout.strip()
+        add = '--add' if args.add else ''
         if  mrk:
-            i3.command( f"[con_id={curr_win}] mark {mrk}" )
+            i3.command( f"[con_id={curr_win}] mark {add} {mrk}" )
 
         # nothing to do more
         exit(0)
