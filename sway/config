@@ -344,8 +344,10 @@ bindsym $mod+Tab exec python3 $scriptdir/i3-cycle-focus.py --switch
 
 # Mark system
 # {{{ VIM-atra systemo mark/goto
-bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: ' -f 'pango:Iosevka Mea Medium 15'
-bindsym $mod+Control+m exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: ' -f 'pango:Iosevka Mea Medium 15'
+#bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: ' -f 'pango:Iosevka Mea Medium 15'
+#bindsym $mod+Control+m exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: ' -f 'pango:Iosevka Mea Medium 15'
+bindsym $mod+m exec $scriptdir/focus-marked-window.py --mark-1char
+bindsym $mod+Control+m exec $scriptdir/focus-marked-window.py --focus-1char
 # }}}
 
 # {{{ pulse audio volume control
