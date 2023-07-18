@@ -37,11 +37,22 @@ def make_choice_string( e ):
             # ) )
     # return aRet
 
+def clear_all_marks_of_current_window( id ):
+    # kompleta efaco di omna marki che fenestro aktualigita,
+    # qua atingesas per remplasigar omna marki dil fenestro
+    # per marko "clear" e posa efaco ca marko
+    i3.command( f"[con_id={id}] mark --replace --toggle clear" )
+    i3.command( f"[con_id={id}] mark --replace --toggle clear" )
+
+
 if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Operacas marki dil fenestri')
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
     parser.add_argument('--mark', action='store_true', help='Set mark on window')
+    parser.add_argument('--add', action='store_true', help='Add-mode on setting of mark')
+    parser.add_argument('--replace', action='store_true', help='Replace-mode on setting of mark')
+    parser.add_argument('--clear', action='store_true', help='Clear-mode on setting of mark')
     # parser.parse_args()
     (args, menu_args) = parser.parse_known_args()
 
@@ -113,3 +124,7 @@ if  __name__ == '__main__':
                  ).stdout.strip()
         if  mrk:
             i3.command( f"[con_id={curr_win}] mark {mrk}" )
+
+    if  args.clear:
+        clear_all_marks_of_current_window( i3.get_tree().find_focused().id )
+
