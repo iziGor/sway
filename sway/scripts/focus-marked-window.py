@@ -62,6 +62,7 @@ if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Operacas marki dil fenestri')
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
+    parser.add_argument('--focus-1ch', action='store_true', help='Switch to window marked in one character')
     parser.add_argument('--mark', action='store_true', help='Set string-mark on window')
     parser.add_argument('--mark-1char', action='store_true', help='Set one-character-mark on current window')
     parser.add_argument('--add', action='store_true', help='Add-mode on setting of current windows mark')
@@ -91,7 +92,7 @@ if  __name__ == '__main__':
         aNodes = all_windows()
         if  len(aNodes) == 0:
             menu_args = [ '-e', 'Marked windows not found'
-                         , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
+                        , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
             run( [args.menu] + menu_args )
             exit(0)
 
@@ -118,6 +119,35 @@ if  __name__ == '__main__':
                 if  win == e.get("name").strip():
                     i3.command("[con_id=%s] focus" % e.get("con_id"))
                     break
+
+        # nothing to do more
+        exit(0)
+
+    if  args.focus_1ch:
+        if  len(all_windows()) == 0:
+            menu_args = [ '-e', 'Marked windows not found'
+                        , '-theme-str', 'window { width: 25%; } textbox { horizontal-align: 0.5; }']
+            run( [args.menu] + menu_args )
+            exit(0)
+
+        menu_args = [ '-dmenu'
+                    , '-p', 'Enter a character for mark:'
+                    , '-theme-str', 'configuration { inputchange { action: "kb-accept-entry"; } }'
+                    , '-theme-str', 'window { width: 25%; }'
+                    , '-theme-str', 'inputbar { border-radius: 10px; }'
+                    , '-theme-str', 'listview { enabled: false; }' ]
+        try:
+            mrk = run( [args.menu] + menu_args
+                     , input=''
+                     , check=True
+                     , capture_output=True
+                     , encoding='UTF-8'
+                     ).stdout.strip()
+        except CalledProcessError as e:
+            exit(e.returncode)
+
+        if  mrk:
+            i3.command(f'[con_mark="{mrk}"] focus')
 
         # nothing to do more
         exit(0)
