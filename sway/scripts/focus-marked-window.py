@@ -44,6 +44,19 @@ def clear_all_marks_of_current_window( id ):
     i3.command( f"[con_id={id}] mark --replace --toggle clear" )
     i3.command( f"[con_id={id}] mark --replace --toggle clear" )
 
+def set_mark( menuparams ):
+    tree = i3.get_tree()
+    curr_win = tree.find_focused().id
+    mrk = run( [args.menu] + menuparams_args
+             , input=''
+             , check=True
+             , capture_output=True
+             , encoding='UTF-8'
+             ).stdout.strip()
+    add = '--add' if args.add else ''
+    if  mrk:
+        i3.command( f"[con_id={curr_win}] mark {add} {mrk}" )
+
 
 if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Operacas marki dil fenestri')
@@ -109,24 +122,25 @@ if  __name__ == '__main__':
         # nothing to do more
         exit(0)
 
+    if  args.mark:
+        menu_args = [ '-dmenu'
+                    , '-p', 'Enter mark:'
+                    , '-theme-str', 'window { width: 25%; }'
+                    , '-theme-str', 'inputbar { border-radius: 10px; }'
+                    , '-theme-str', 'listview { enabled: false; }' ]
+        set_mark( menu_args )
+
+        # nothing to do more
+        exit(0)
+
     if  args.mark_1char:
-        tree = i3.get_tree()
-        curr_win = tree.find_focused().id
         menu_args = [ '-dmenu'
                     , '-p', 'Enter a character for mark:'
                     , '-theme-str', 'configuration { inputchange { action: "kb-accept-entry"; } }'
                     , '-theme-str', 'window { width: 25%; }'
                     , '-theme-str', 'inputbar { border-radius: 10px; }'
                     , '-theme-str', 'listview { enabled: false; }' ]
-        mrk = run( [args.menu] + menu_args
-                 , input=''
-                 , check=True
-                 , capture_output=True
-                 , encoding='UTF-8'
-                 ).stdout.strip()
-        add = '--add' if args.add else ''
-        if  mrk:
-            i3.command( f"[con_id={curr_win}] mark {add} {mrk}" )
+        set_mark( menu_args )
 
         # nothing to do more
         exit(0)
