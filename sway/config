@@ -348,6 +348,22 @@ bindsym $mod+Tab exec python3 $scriptdir/i3-cycle-focus.py --switch
 #bindsym $mod+Control+m exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Go to: ' -f 'pango:Iosevka Mea Medium 15'
 bindsym $mod+m exec $scriptdir/focus-marked-window.py --mark-1char
 bindsym $mod+apostrophe exec $scriptdir/focus-marked-window.py --focus-1char
+bindsym $mod+Shift+apostrophe exec $scriptdir/focus-marked-window.py --focus
+
+# {{{ Mark system mode
+set $markmode "Mark: m-mrk M-add-mrk A+m-add-mrk-1ch \'-foc A+c-clr-all"
+bindsym $mod+Control+m mode $markmode
+mode $markmode {
+  bindsym m exec $scriptdir/focus-marked-window.py --mark ; mode "default"
+  bindsym Shift+m exec $scriptdir/focus-marked-window.py --mark --add ; mode "default"
+  bindsym Alt+m exec $scriptdir/focus-marked-window.py --mark-1char --add ; mode "default"
+  bindsym apostrophe exec $scriptdir/focus-marked-window.py --focus ; mode "default"
+  bindsym Alt+c exec $scriptdir/focus-marked-window.py --clear-all ; mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym q      mode "default"
+}
+# }}}
 # }}}
 
 # {{{ pulse audio volume control
