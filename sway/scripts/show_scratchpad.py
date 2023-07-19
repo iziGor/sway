@@ -20,8 +20,8 @@ from scratchpad_tools_sway_i3ipc \
 
 LOGFILE = environ["HOME"] + "/logs/show_scratchpad.log"
 # LOGLEVEL = DEBUG
-LOGLEVEL = INFO
-# LOGLEVEL = WARNING
+# LOGLEVEL = INFO
+LOGLEVEL = WARNING
 
 basicConfig(filename=LOGFILE, level=LOGLEVEL, format="%(asctime)s %(message)s")
 log = getLogger("showsp")
