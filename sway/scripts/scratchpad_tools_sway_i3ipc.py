@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # vim:autoindent:smartindent:expandtab:smarttab:tabstop=4:softtabstop=4:shiftwidth=4:foldmethod=marker
 
-import i3ipc as i3
+from i3ipc import Connection
 from subprocess import Popen, PIPE
 from collections import OrderedDict
 
@@ -23,7 +23,7 @@ def dmenu(options, dmenu):
 
 def is_focused_scratchpad():
     retval = False
-    main_tree = i3.Connection().get_tree()
+    main_tree = Connection().get_tree()
     scratch_tree = main_tree.scratchpad()
 
     for ws in main_tree.workspaces():
@@ -38,12 +38,12 @@ def is_focused_scratchpad():
 
 def total_scratchpad_count():
     ''' obtenar tota quanto di kladala fenestri '''
-    return len(i3.Connection().get_tree().scratchpad().focus)
+    return len(Connection().get_tree().scratchpad().focus)
 
 def get_scratched_windows():
     ''' obtenar tota listo di kladala fenestri '''
     sw_list = []
-    tree = i3.Connection().get_tree()
+    tree = Connection().get_tree()
     scratchpad = tree.scratchpad()
     for e in scratchpad.floating_nodes:
         sw_list.append({"wincon": e, "wsname": SPREFIX, "conname": e.name})
@@ -56,7 +56,7 @@ def in_scratch_count():
 def get_opened_scratched_windows():
     ''' Get all opened scratched windows. '''
     osw_list = []
-    tree = i3.Connection().get_tree()
+    tree = Connection().get_tree()
     scratchpad = tree.scratchpad()
     scr_wids = scratchpad.focus
     wsname = ''
@@ -178,15 +178,15 @@ def select_from_opened_sw():
 
 
 if  __name__ == "__main__":
-    import pprint
-    tree = i3.Connection().get_tree()
+    from pprint import pformat
+    tree = Connection().get_tree()
     scratch_con = tree.scratchpad()
     count = len(scratch_con.focus)
     print("Count of scratchpad containers", count)
     # pprint.pprint( tree)
-    print("Tota arboro:\n", pprint.pformat(tree, compact=True))
+    print("Tota arboro:\n", pformat(tree, compact=True))
 
     # focused = [tree.find_focused()]
-    # print("Focus on:\n", pprint.pformat(focused))
+    # print("Focus on:\n", pformat(focused))
     # print("Scratch-containers id:", scratch_con.get("focus"))
 
