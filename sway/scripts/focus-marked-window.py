@@ -9,33 +9,39 @@ from sys import exit
 import i3ipc
 
 def all_windows():
-    ''' obteno dil tota listo markizita fenestri, inkluzante kladala '''
+    ''' obteno dil tota listo di markizita fenestri, inkluzante kladala '''
     tree = i3.get_tree()
     aNodes = []
     for e in tree.find_marked():
         # aNodes.append({ "name": "{}: {}".format( e.workspace().name, e.name )
-        aNodes.append({ "name": make_choice_string( e )
+        aNodes.append({ "name": make_choice_string_of_wins( e )
                       , "con_id": e.id })
         # aNodes.append( e )
-
     return aNodes
 
-def make_choice_string( e ):
-    ''' kompozo do lineo kun informajo pri fenestro markizita '''
-    return '{}: \"{}\" marks={}'.format(
+def make_choice_string_of_wins( e ):
+    ''' kompozo di lineo kun informajo pri fenestro markizita '''
+    return '[{}]/\"{}\" marks={}'.format(
         '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
         e.name,
         repr( e.marks ))
 
-# def make_choice_strings( a ):
-    # aRet = []
-    # for e in a:
-        # aRet.append( '{}: \"{}\" marks={}'.format(
-            # e.workspace().name
-            # , e.name
-            # , repr( e.marks )
-            # ) )
-    # return aRet
+def all_marks():
+    ''' obteno dil tota listo di marki '''
+    tree = i3.get_tree()
+    aNodes = []
+    for e in tree.find_marked():
+        for m in e.marks:
+            aNodes.append({ "name": make_choice_string_of_marks( e, m )
+                          , "con_id": e.id })
+    return aNodes
+
+def make_choice_string_of_marks( e, m ):
+    ''' kompozo di lineo kun informajo pri fenestro markizita '''
+    return '{}: [{}]/\"{}\"'.format(
+        m,
+        '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
+        e.name)
 
 def show_not_found_message():
     menu_args = [ '-e', 'Marked windows not found'
@@ -68,6 +74,7 @@ if  __name__ == '__main__':
     parser.add_argument('--menu', default='rofi', help='The menu command to run (ex: --menu=dmenu)')
     parser.add_argument('--focus', action='store_true', help='Switch to selected marked window')
     parser.add_argument('--focus-1char', action='store_true', help='Switch to window marked in one character')
+    parser.add_argument('--list-marks', action='store_true', help='List of marks')
     parser.add_argument('--mark', action='store_true', help='Set string-mark on window')
     parser.add_argument('--mark-1char', action='store_true', help='Set one-character-mark on current window')
     parser.add_argument('--add', action='store_true', help='Add-mode on setting of current windows mark')
@@ -91,7 +98,34 @@ if  __name__ == '__main__':
                      # , '-theme-str', 'inputbar { border-radius: 15px 15px 15px 15px; } listview { enabled: false; }']
 
     win = ''
+    manag_jobs = ( 'Clear all marks in all windows'
+                  , 'Clear all marks in certain window'
+                  , 'Clear certain mark'
+                  , 'Add mark for certain window (safe mode)'
+                  , 'Add mark for certain window (with removing already existing mark in any window)')
     i3 = i3ipc.Connection()
+
+    if  args.list_marks:
+        aMarks = all_marks()
+        if  len(aMarks) == 0:
+            show_not_found_message()
+            exit(0)
+
+        menu_args = [ '-dmenu'
+                    , '-p', 'Select from marks:'
+                    , '-theme-str', 'listview {{ lines: {}; }}'.format( min( len(aMarks), 10 ) )]
+        try:
+            win = run( [args.menu] + menu_args
+                     , input='\n'.join([ e.get("name") for e in aMarks ])
+                     , check=True
+                     , capture_output=True
+                     , encoding='UTF-8'
+                     ).stdout.strip()
+        except CalledProcessError as e:
+            exit(e.returncode)
+
+        # nothing to do more
+        exit(0)
 
     if  args.focus:
         aNodes = all_windows()
