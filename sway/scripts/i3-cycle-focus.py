@@ -5,12 +5,19 @@
 #     exec_always --no-startup-id i3-cycle-focus.py --history 2
 #     bindsym $mod1+Tab exec --no-startup-id i3-cycle-focus.py --switch
 
-import os
-import socket
-import selectors
-import threading
+from os import _exit, remove
+from os.path import exists as is_exist
+from socket \
+    import ( socket
+           , AF_UNIX
+           , SOCK_STREAM )
+from selectors import DefaultSelector, EVENT_READ
+from threading \
+    import ( RLock
+           , Timer
+           , Thread )
 from argparse import ArgumentParser
-import i3ipc
+from i3ipc import Connection
 
 SOCKET_FILE = '/tmp/.i3-cycle-focus.sock'
 MAX_WIN_HISTORY = 16
@@ -18,20 +25,20 @@ UPDATE_DELAY = 2.0
 
 
 def on_shutdown(i3_conn, e):
-    os._exit(0)
+    _exit(0)
 
 class FocusWatcher:
     def __init__(self):
-        self.i3 = i3ipc.Connection()
+        self.i3 = Connection()
         self.i3.on('window::focus', self.on_window_focus)
         self.i3.on('shutdown', on_shutdown)
-        self.listening_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        if os.path.exists(SOCKET_FILE):
-            os.remove(SOCKET_FILE)
+        self.listening_socket = socket(AF_UNIX, SOCK_STREAM)
+        if is_exist(SOCKET_FILE):
+            remove(SOCKET_FILE)
         self.listening_socket.bind(SOCKET_FILE)
         self.listening_socket.listen(1)
         self.window_list = []
-        self.window_list_lock = threading.RLock()
+        self.window_list_lock = RLock()
         self.focus_timer = None
         self.window_index = 1
 
@@ -68,7 +75,7 @@ class FocusWatcher:
         if UPDATE_DELAY != 0.0:
             if self.focus_timer is not None:
                 self.focus_timer.cancel()
-            self.focus_timer = threading.Timer(UPDATE_DELAY, self.update_windowlist,
+            self.focus_timer = Timer(UPDATE_DELAY, self.update_windowlist,
                                                [event.container.id])
             self.focus_timer.start()
         else:
@@ -78,11 +85,11 @@ class FocusWatcher:
         self.i3.main()
 
     def launch_server(self):
-        selector = selectors.DefaultSelector()
+        selector = DefaultSelector()
 
         def accept(sock):
             conn, addr = sock.accept()
-            selector.register(conn, selectors.EVENT_READ, read)
+            selector.register(conn, EVENT_READ, read)
 
         def read(conn):
             data = conn.recv(1024)
@@ -103,7 +110,7 @@ class FocusWatcher:
                 selector.unregister(conn)
                 conn.close()
 
-        selector.register(self.listening_socket, selectors.EVENT_READ, accept)
+        selector.register(self.listening_socket, EVENT_READ, accept)
 
         while True:
             for key, event in selector.select():
@@ -111,8 +118,8 @@ class FocusWatcher:
                 callback(key.fileobj)
 
     def run(self):
-        t_i3 = threading.Thread(target=self.launch_i3)
-        t_server = threading.Thread(target=self.launch_server)
+        t_i3 = Thread(target=self.launch_i3)
+        t_server = Thread(target=self.launch_server)
         for t in (t_i3, t_server):
             t.start()
 
@@ -177,7 +184,7 @@ if __name__ == '__main__':
         focus_watcher = FocusWatcher()
         focus_watcher.run()
     else:
-        client_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        client_socket = socket(AF_UNIX, SOCK_STREAM)
         client_socket.connect(SOCKET_FILE)
         client_socket.send(b'switch')
         client_socket.close()
