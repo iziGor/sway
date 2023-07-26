@@ -162,6 +162,11 @@ window#waybar.chromium {
     animation-direction: alternate;
 }
 
+#battery.lowenergy:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
 label:focus {
     background-color: #000000;
 }
