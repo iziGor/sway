@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 from subprocess import run, CalledProcessError
 from os.path import basename
 from sys import exit
-import i3ipc
+from i3ipc import Connection
 
 def all_windows():
     ''' obteno dil tota listo di markizita fenestri, inkluzante kladala '''
@@ -68,6 +68,24 @@ def set_mark( menuparams ):
     if  mrk:
         i3.command( f"[con_id={curr_win}] mark {add} {mrk}" )
 
+def menu( aMenu ):
+    #
+    menu_args = [ '-dmenu'
+                , '-p', 'Select from marks:'
+                , '-theme-str', 'window { width: 75%; }'
+                , '-theme-str', 'listview {{ lines: {}; }}'.format( min( len(aMenu), 10 ) )]
+    try:
+        ret = run( [args.menu] + menu_args
+                 # , input='\n'.join([ e.get("name") for e in aMenu ])
+                 , input='\n'.join([ e for e in aMenu ])
+                 , check=True
+                 , capture_output=True
+                 , encoding='UTF-8'
+                 ).stdout.strip()
+    except CalledProcessError as e:
+        exit(e.returncode)
+    return ret
+
 
 if  __name__ == '__main__':
     parser = ArgumentParser(description = 'Operacas marki dil fenestri')
@@ -98,12 +116,12 @@ if  __name__ == '__main__':
                      # , '-theme-str', 'inputbar { border-radius: 15px 15px 15px 15px; } listview { enabled: false; }']
 
     win = ''
-    manag_jobs = ( 'Clear all marks in all windows'
-                  , 'Clear all marks in certain window'
-                  , 'Clear certain mark'
-                  , 'Add mark for certain window (safe mode)'
-                  , 'Add mark for certain window (with removing already existing mark in any window)')
-    i3 = i3ipc.Connection()
+    manag_jobs = ( '1. Clear all marks in all windows'
+                 , '2. Clear all marks in certain window'
+                 , '3. Clear certain mark'
+                 , '4. Add mark for certain window (safe mode)'
+                 , '5. Add mark for certain window (with removing already existing mark in any window)')
+    i3 = Connection()
 
     if  args.list_marks:
         aMarks = all_marks()
