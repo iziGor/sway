@@ -617,6 +617,7 @@ mode $chlight {
 }
 # }}}
 
+# {{{ diversa fenestral reguli
 #for_window [class="^.*$"] border pixel $defbordpix
 #for_window [app_id="^.*$"] border pixel $defbordpix
 
@@ -625,8 +626,10 @@ for_window [title="^Firefox.*Profile$"] floating enable
 for_window [title="^Password.*Thunderbird$"] floating enable
 for_window [app_id="^.*inentry.*$"] floating enable
 for_window [title="(Действия над файлами)|(File Operation Progress)"] floating enable
+for_window [title="(через)|(vie) Bluetooth"] floating enable
 
 for_window [title="Alacritty"] resize set 1666 847
+# }}}
 
 #
 # Status Bar:
