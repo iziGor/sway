@@ -693,7 +693,12 @@ bar {
 #exec_always waybar
 
 exec_always $scriptdir/run-i3-cycle-focus.sh
+
+# {{{ notify system on base of dunst
 exec dunst &
+# period = .
+swaymsg bindsym $mod+Control+period exec dunstctl context
+# }}}
 
 include ~/.config/sway/gtk_set
 include ~/.config/sway/environment
