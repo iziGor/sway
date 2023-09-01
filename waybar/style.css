@@ -136,13 +136,9 @@ window#waybar.chromium {
 }
 
 #battery {
-    /*background-color: #ffffff;*/
-    /*color: #000000;*/
-}
-
-#battery.charging, #battery.plugged {
-    /*color: #ffffff;*/
-    /*background-color: #26A65B;*/
+    font-family: "Iosevka Mea";
+		/*background-color: #ffffff;*/
+		/*color: #000000;*/
 }
 
 @keyframes blink {
@@ -162,10 +158,42 @@ window#waybar.chromium {
     animation-direction: alternate;
 }
 
+#battery.warning:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
 #battery.lowenergy:not(.charging) {
     background-color: #f53c3c;
     color: #ffffff;
 }
+
+/*#battery.full:not(.charging) {*/
+		/*color: #f53c3c;*/
+    /*background-color: #26A65B;*/
+/*}*/
+
+#battery.discharging {
+		color: tomato;
+		/*color: #f53c3c;*/
+    /*background-color: #26A65B;*/
+}
+
+/*#battery.good:not(.charging) {*/
+		/*color: yellow;*/
+/*}*/
+
+/*#battery.charging, #battery.plugged {*/
+#battery.charging {
+		color: gold;
+		/*color: #3cf5f5;*/
+    /*background-color: #26A65B;*/
+}
+
+/*#battery.charging.good {*/
+		/*color: #3cf5f5;*/
+    /*[>background-color: #26A65B;<]*/
+/*}*/
 
 label:focus {
     background-color: #000000;
