@@ -3,7 +3,10 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     /*font-family: Roboto, Noto Sans Condensed, Helvetica, Arial, sans-serif;*/
-    font-family: "Iosevka Mea", "Font Awesome 5 Free Solid";
+    font-family: "Iosevka Mea";
+    /* font-family: "Font Awesome 6 Free Solid", "Iosevka Mea"; */
+    /* font-family: "Iosevka Mea", "Font Awesome 6 Free Solid"; */
+    /* font-family: "Iosevka Mea", "Font Awesome 6 Free Regular"; */
     font-size: 18px;
     min-height: 0;
     color: #bddfdf;
@@ -199,6 +202,10 @@ label:focus {
     background-color: #000000;
 }
 
+#cpu {
+    font-family: "Iosevka Mea", "Font Awesome 6 Free Solid";
+}
+
 #cpu.10 {
     /*background-color: #2ecc71;*/
 		color: #1aeeea;
@@ -261,6 +268,7 @@ label:focus {
 }
 
 #pulseaudio {
+    font-family: "Iosevka Mea", "Font Awesome 6 Free Solid";
     /*background-color: #f1c40f;*/
     /*color: #000000;*/
 }
@@ -372,6 +380,8 @@ label:focus {
 }
 
 #custom-ws {
+    font-family: "Iosevka Mea";
+    /* font-family: "Font Awesome 6 Free Regular"; */
     /*background-color: #66cc99;*/
     /*margin-left: 0;*/
     /*margin-right: 3px;*/
