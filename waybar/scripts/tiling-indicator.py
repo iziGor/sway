@@ -73,19 +73,19 @@ last = ''
           # , "splith":  ("CF4F88", "\uf101")
           # }
 
-layouts = { "tabbed":  ("61bbf6", "\uf24d")
-          , "stacked": ("00AA00", "\uf5fd")
-          , "splitv":  ("82B8DF", "\u2b9f")
-          , "splith":  ("CF4F88", "\u2b9e")
-          }
+# layouts = { "tabbed":  ("61bbf6", "\uf24d")
+#           , "stacked": ("00AA00", "\uf5fd")
+#           , "splitv":  ("82B8DF", "\u2b9f")
+#           , "splith":  ("CF4F88", "\u2b9e")
+#           }
 
 # Iosevka
 
-# layouts = { "tabbed":  ("61bbf6", "\uf24d")
-#           , "stacked": ("00AA00", "\uf5fd")
-#           , "splitv":  ("82B8DF", "\uf837")
-#           , "splith":  ("CF4F88", "\u2b9e")
-#           }
+layouts = { "tabbed":  ("61bbf6", "\uf24d")
+          , "stacked": ("00AA00", "\uf837")
+          , "splitv":  ("82B8DF", "\u2b9f")
+          , "splith":  ("CF4F88", "\u2b9e")
+          }
 
 # Material Icons
 
