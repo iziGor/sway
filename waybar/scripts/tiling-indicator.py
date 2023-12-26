@@ -68,7 +68,7 @@ last = ''
 # Font Awesome 5 Free:style=Solid
 
 # layouts = { "tabbed":  ("61bbf6", "\uf24d")
-          # , "stacked": ("00AA00", "\uf5fd")
+          # , "stacked": ("00AA00", "\uf837")
           # , "splitv":  ("82B8DF", "\uf103")
           # , "splith":  ("CF4F88", "\uf101")
           # }
@@ -82,7 +82,7 @@ last = ''
 # Iosevka
 
 layouts = { "tabbed":  ("61bbf6", "\uf24d")
-          , "stacked": ("00AA00", "\uf837")
+          , "stacked": ("00AA00", "\ue987")
           , "splitv":  ("82B8DF", "\u2b9f")
           , "splith":  ("CF4F88", "\u2b9e")
           }
