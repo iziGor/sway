@@ -1,4 +1,4 @@
-// vim:ts=2:sw=2:et
+// vim:ts=2:sw=2:et:ft=json
 [
   {
     "name": "topbar",
@@ -76,7 +76,9 @@
     },
     "cpu": {
         // "format": "{usage}%<span color=\"#008080\"></span>",
-        "format": "<span color=\"#008080\"></span>{usage}%",
+        // "format": "<span color=\"#008080\"></span>{usage}%",
+        "format": "<span color=\"#008080\"></span>{usage}%",
+        // "format": "<span color=\"#008080\"></span>{usage}%",
         "tooltip": false,
         "interval": 5,
         "states": {
@@ -89,7 +91,9 @@
           "95": 95 }
     },
     "memory": {
-        "format": "<span color=\"#008080\"></span>{}%"
+        // "format": "<span color=\"#008080\"></span>{}%"
+        "format": "<span color=\"#008080\"></span>{}%"
+        // "format": "<span color=\"#008080\"></span>{}%"
     },
     "temperature": {
         // "thermal-zone": 2,
