@@ -202,7 +202,9 @@
         "exec": "$HOME/.config/waybar/scripts/run-ti-script.sh"
     },
     "custom/fan": {
-        "format": "<span color=\"#008080\"></span>{}",
+        // "format": "<span color=\"#008080\"></span>{}",
+        // "format": "<span color=\"#008080\"></span>{}",
+        "format": "<span color=\"#008080\"></span>{}",
         "interval": 10,
         "exec": "$HOME/.config/waybar/scripts/system-fan-speed.sh"
     },
