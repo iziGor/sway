@@ -5,9 +5,11 @@ scratchpad="$(swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==
 #scratchpad="1"
 case $scratchpad in
   0) text="" ;;
-  *) text=" $scratchpad" ;;
+  # *) text=" $scratchpad" ;;
+  *) text=" $scratchpad" ;;
 esac
 class=$scratchpad
-[[ $scratchpad > 7 ]] && class="7"
+# [[ $scratchpad > 7 ]] && class="7"
+[[ $scratchpad -gt 7 ]] && class="7"
 echo "{\"text\": \"$text\", \"class\": \"$class\"}"
 
