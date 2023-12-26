@@ -1,4 +1,4 @@
-// vim:ts=2:sw=2:et:ft=javascript
+// vim:ts=2:sw=2:et:ft=json
 [
   {
     "name": "topbar",
@@ -195,14 +195,14 @@
         "format": "<span color=\"#008080\"></span>{}",
         "return-type": "json",
         "interval": 10,
-        /*"exec": "free | awk '/Swap/{printf(\"%.0f%\\nSwap used: %.1fMB\"), $3/$2*100, $3/1000}'"*/
+        // "exec": "free | awk '/Swap/{printf(\"%.0f%\\nSwap used: %.1fMB\"), $3/$2*100, $3/1000}'"
         "exec": "$HOME/.config/waybar/scripts/swap.sh"
     },
     "custom/ws": {
         "format": "{}",
         "return-type": "json",
-        /*"exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"*/
-        /*"exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"*/
+        // "exec": "$HOME/.config/waybar/scripts/tiling-indicator.py 2>> $HOME/logs/sway-waybar-ws.log"
+        // "exec": "python -u -OO $HOME/.config/waybar/scripts/tiling-indicator.py 2>>$HOME/logs/sway-waybar-ws.log"
         "exec": "$HOME/.config/waybar/scripts/run-ti-script.sh"
     },
     "custom/fan": {
