@@ -35,11 +35,11 @@ window#waybar.hidden {
 }
 
 window#waybar.empty {
-		background-color: transparent;
+    background-color: transparent;
 }
 
 /*window#waybar.solo {*/
-		/*background-color: #FFFFFF;*/
+    /*background-color: #FFFFFF;*/
 /*}*/
 
 
@@ -62,11 +62,11 @@ window#waybar.chromium {
 }
 
 /*.topbar {*/
-		/*border-bottom: 3px solid rgba(100, 114, 125, 1);*/
+    /*border-bottom: 3px solid rgba(100, 114, 125, 1);*/
 /*}*/
 
 /*.bottombar {*/
-		/*border-top: 3px solid rgba(100, 114, 125, 1);*/
+    /*border-top: 3px solid rgba(100, 114, 125, 1);*/
 /*}*/
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -132,16 +132,16 @@ window#waybar.chromium {
 }
 
 #clock {
-	  font-weight: bolder;
-		font-size: 20px;
-		color: #32cd76;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #32cd76;
     /*background-color: #64727D;*/
 }
 
 #battery {
     font-family: "Iosevka Mea";
-		/*background-color: #ffffff;*/
-		/*color: #000000;*/
+    /*background-color: #ffffff;*/
+    /*color: #000000;*/
 }
 
 @keyframes blink {
@@ -172,29 +172,29 @@ window#waybar.chromium {
 }
 
 /*#battery.full:not(.charging) {*/
-		/*color: #f53c3c;*/
+    /*color: #f53c3c;*/
     /*background-color: #26A65B;*/
 /*}*/
 
 #battery.discharging {
-		color: tomato;
-		/*color: #f53c3c;*/
+    color: tomato;
+    /*color: #f53c3c;*/
     /*background-color: #26A65B;*/
 }
 
 /*#battery.good:not(.charging) {*/
-		/*color: yellow;*/
+    /*color: yellow;*/
 /*}*/
 
 /*#battery.charging, #battery.plugged {*/
 #battery.charging {
-		color: gold;
-		/*color: #3cf5f5;*/
+    color: gold;
+    /*color: #3cf5f5;*/
     /*background-color: #26A65B;*/
 }
 
 /*#battery.charging.good {*/
-		/*color: #3cf5f5;*/
+    /*color: #3cf5f5;*/
     /*[>background-color: #26A65B;<]*/
 /*}*/
 
@@ -208,41 +208,41 @@ label:focus {
 
 #cpu.10 {
     /*background-color: #2ecc71;*/
-		color: #1aeeea;
+    color: #1aeeea;
 }
 
 #cpu.25 {
     /*background-color: #2ecc71;*/
-		color: #00d700;
+    color: #00d700;
 }
 
 #cpu.40 {
     /*background-color: #2ecc71;*/
-		/*color: #afafd7;*/
-		color: greenyellow;
+    /*color: #afafd7;*/
+    color: greenyellow;
 }
 
 #cpu.55 {
     /*background-color: #2ecc71;*/
-		/*color: #dfffdf;*/
-		color: gold;
+    /*color: #dfffdf;*/
+    color: gold;
 }
 
 #cpu.70 {
     /*background-color: #2ecc71;*/
-		/*color: #ffdfd7;*/
-		color: darkorange;
+    /*color: #ffdfd7;*/
+    color: darkorange;
 }
 
 #cpu.85 {
     /*background-color: #2ecc71;*/
-		/*color: #df5f00;*/
-		color: orangered;
+    /*color: #df5f00;*/
+    color: orangered;
 }
 
 #cpu.95 {
     /*background-color: #2ecc71;*/
-		color: #ff0000;
+    color: #ff0000;
 }
 
 #memory {
@@ -350,7 +350,7 @@ label:focus {
     /*background: #318047;*/
     /*background: rgba(49, 128, 71, 0.5);*/
     background: rgba(0, 0, 0, 0.5);
-		/*color: #000000;*/
+    /*color: #000000;*/
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
@@ -386,39 +386,39 @@ label:focus {
     /*margin-left: 0;*/
     /*margin-right: 3px;*/
     margin: 3px;
-		min-width: 22px;
+    min-width: 22px;
 }
 
 #custom-scratch.0 {
-		color: darkgray;
+    color: darkgray;
 }
 
 #custom-scratch.1 {
-		color: deepskyblue;
+    color: deepskyblue;
 }
 
 #custom-scratch.2 {
-		color: lime;
+    color: lime;
 }
 
 #custom-scratch.3 {
-		color: gold;
+    color: gold;
 }
 
 #custom-scratch.4 {
-		color: plum;
+    color: plum;
 }
 
 #custom-scratch.5 {
-		color: orange;
+    color: orange;
 }
 
 #custom-scratch.6 {
-		color: red;
+    color: red;
 }
 
 #custom-scratch.7 {
-		color: tomato;
+    color: tomato;
 }
 
 #custom-networktraffic {
