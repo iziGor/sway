@@ -40,6 +40,7 @@ setifaces() {
           ;;
         wlan*)
           ICON=""
+          # ICON=""
           ;;
         tun*)
           ICON=""
