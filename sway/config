@@ -131,10 +131,10 @@ font pango:Iosevka Mea Medium 14
     # Start a terminal
     #bindsym $mod+Return exec $term -o font.size=18
     #bindsym $mod+Return exec $term
-    bindsym $mod+Return exec alacritty msg create-window -e $SHELL -i || $term -e $SHELL -i
+    bindsym $mod+Return exec "alacritty msg create-window -e $SHELL -i || $term -e $SHELL -i"
     bindsym $mod+Shift+Return exec $termcmd
     #bindsym $mod+Alt+Return exec footclient || notify-send -i dialog-error "footclient" "launch failed\nretcode $( echo $? )"
-    bindsym $mod+Alt+Return exec footclient
+    bindsym $mod+Alt+Return exec footclient -W 146x32
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -289,7 +289,8 @@ for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to w
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+space floating toggle; [app_id="Alacritty" floating] border pixel $defbordpix
+    # bindsym $mod+Shift+space floating toggle ; [app_id="footclient" floating] resize set 1758 px 905 px; [app_id="Alacritty" floating] resize set 1750 px 880 px
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -331,7 +332,8 @@ bindsym $mod+$Alt+o exec $scriptdir/run-term-for-scratchpad.sh
 #for_window [title="pop"] move scratchpad, resize set 1737 933, move position 90 60
 
 #for_window [title="pop"] move scratchpad, resize set 1666 847
-for_window [title="pop"] move scratchpad, resize set 1724 940, border pixel $defbordpix
+# for_window [title="pop"] move scratchpad, border pixel $defbordpix, resize set 1724 940
+for_window [title="pop" tiling] floating enable, border pixel $defbordpix, move scratchpad
 #for_window [title="pop"] move scratchpad, resize set 1726 958
 
 # por tiparo "Pragmata Pro 18"
@@ -395,7 +397,7 @@ bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
 bindsym XF86Tools exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86AudioMute exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
-bindsym Shift+Control+XF86Tools exec alacritty -o window.opacity=0.7 --title "pulsemixer" -e 'pulsemixer'
+bindsym Shift+Control+XF86Tools exec alacritty -o 'window.dimensions.lines=20' -o 'window.dimensions.columns=90' -o window.opacity=0.7 --title "pulsemixer" -e 'pulsemixer'
 #bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
 
 #bindsym XF86AudioPlay    exec mpc -h mysvr -p 6600 toggle
@@ -641,14 +643,15 @@ mode $chlight {
 #for_window [class="^.*$"] border pixel $defbordpix
 #for_window [app_id="^.*$"] border pixel $defbordpix
 
-for_window [title="pulsemixer"] floating enable
+for_window [title="pulsemixer"] floating enable, border pixel $defbordpix
 for_window [title="^Firefox.*Profile$"] floating enable
 for_window [title="^Password.*Thunderbird$"] floating enable
 for_window [app_id="^.*inentry.*$"] floating enable
 for_window [title="(Действия над файлами)|(File Operation Progress)"] floating enable
 for_window [title="(через)|(vie) Bluetooth"] floating enable
 
-for_window [title="Alacritty"] resize set 1666 847
+# for_window [app_id="Alacritty"] resize set 1666 847
+# for_window [app_id="footclient" floating] resize set 1758 px 905 px
 # }}}
 
 #
