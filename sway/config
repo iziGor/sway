@@ -354,8 +354,8 @@ bindsym Scroll_Lock exec $scriptdir/tgl-scroll-method-sway.py
 # ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
 # en rispektiva loki
 #bindsym XF86HomePage workspace $web; exec sh -c 'pgrep firefox || firefox'
-bindsym XF86HomePage workspace $web; layuot tabbed; exec sh -c 'pgrep -f firefox-bin || firefox-bin'
-bindsym XF86Mail workspace $mail; exec sh -c 'pgrep -f thunderbird-bin || thunderbird-bin'
+bindsym XF86HomePage workspace $web; layout tabbed; exec sh -c 'pgrep "firefox-bin" || firefox-bin'
+bindsym XF86Mail workspace $mail; layout tabbed;; exec sh -c 'pgrep "thunderbird-bin" || thunderbird-bin'
 bindsym XF86Explorer exec Thunar
 
 # 
