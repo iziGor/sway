@@ -355,7 +355,7 @@ bindsym Scroll_Lock exec $scriptdir/tgl-scroll-method-sway.py
 # en rispektiva loki
 #bindsym XF86HomePage workspace $web; exec sh -c 'pgrep firefox || firefox'
 bindsym XF86HomePage workspace $web; layout tabbed; exec sh -c 'pgrep "firefox-bin" || firefox-bin'
-bindsym XF86Mail workspace $mail; layout tabbed;; exec sh -c 'pgrep "thunderbird-bin" || thunderbird-bin'
+bindsym XF86Mail workspace $mail; layout tabbed; exec sh -c 'pgrep "thunderbird-bin" || thunderbird-bin'
 bindsym XF86Explorer exec Thunar
 
 # 
