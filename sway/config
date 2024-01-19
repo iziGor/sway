@@ -351,6 +351,9 @@ bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
 bindsym $mod+Control+t exec $scriptdir/tgl-scroll-method-sway.py
 bindsym Scroll_Lock exec $scriptdir/tgl-scroll-method-sway.py
 
+# start/stop pluvo sur skreno
+bindsym $mod+Shift+b exec bg-toggle.sh
+
 # ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
 # en rispektiva loki
 #bindsym XF86HomePage workspace $web; exec sh -c 'pgrep firefox || firefox'
