@@ -77,11 +77,20 @@ def get_all_scratchpad_windows():
     kam celita tam vidata
     '''
     pad = len(SPREFIX)
-    scratchedw = add_handler( add_wrks_to_winname( 
-        get_scratched_windows(), default_pad_len=pad), 
-        show_scratchpad_window )
-    openedscrw = add_handler( add_wrks_to_winname( 
-        get_opened_scratched_windows(), default_pad_len=pad), focus )
+    scratchedw = add_handler(
+        add_wrks_to_winname(
+            get_scratched_windows(),
+            default_pad_len=pad
+        ), 
+        show_scratchpad_window
+    )
+    openedscrw = add_handler(
+        add_wrks_to_winname( 
+            get_opened_scratched_windows(),
+            default_pad_len=pad
+        ),
+        focus 
+    )
     scratchedw.extend(openedscrw)
     return scratchedw
 
@@ -164,17 +173,36 @@ def select_from_sw(lookup):
 def select_from_hidden_sw():
     #
     pad = len(SPREFIX)
-    return select_from_sw( create_lookup_table( add_handler( add_wrks_to_winname( 
-        get_scratched_windows(), default_pad_len=pad), show_scratchpad_window ) ))
+    return select_from_sw(
+        create_lookup_table(
+            add_handler(
+                add_wrks_to_winname(
+                    get_scratched_windows(),
+                    default_pad_len=pad
+                ),
+                show_scratchpad_window 
+            )
+        )
+    )
 
 def select_from_all_sw():
     #
-    return select_from_sw( create_lookup_table( get_all_scratchpad_windows() ))
+    return select_from_sw(
+        create_lookup_table( get_all_scratchpad_windows() )
+    )
 
 def select_from_opened_sw():
     #
-    return select_from_sw( create_lookup_table( add_handler( add_wrks_to_winname( 
-        get_opened_scratched_windows(), default_pad_len=0 ), focus ) ))
+    return select_from_sw(
+        create_lookup_table(
+            add_handler(
+                add_wrks_to_winname( 
+                    get_opened_scratched_windows(), default_pad_len=0
+                ),
+                focus
+            )
+        )
+    )
 
 
 if  __name__ == "__main__":
