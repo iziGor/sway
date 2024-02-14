@@ -22,9 +22,9 @@ def all_windows():
 def make_choice_string_of_wins( e ):
     ''' kompozo di lineo kun informajo pri fenestro markizita '''
     return '[{}]/\"{}\" marks={}'.format(
-        '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
-        e.name,
-        repr( e.marks ))
+        '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name
+        , e.name
+        , repr( e.marks ))
 
 def all_marks():
     ''' obteno dil tota listo di marki '''
