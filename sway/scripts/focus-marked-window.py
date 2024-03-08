@@ -68,8 +68,8 @@ def set_mark( menuparams ):
              , capture_output=True
              , encoding='UTF-8'
              ).stdout.strip()
-    add = '--add' if args.add else ''
     if  mrk:
+        add = '--add' if args.add else ''
         i3.command( f"[con_id={curr_win}] mark {add} {mrk}" )
 
 def menu( aMenu ):
