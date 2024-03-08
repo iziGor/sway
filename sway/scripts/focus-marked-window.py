@@ -8,6 +8,10 @@ from os.path import basename
 from sys import exit
 from i3ipc import Connection
 
+
+SCRATCH_WINDOW_NAME = '__i3_scratch'
+
+
 def all_windows():
     ''' obteno dil tota listo di markizita fenestri, inkluzante le kladala '''
     tree = i3.get_tree()
@@ -22,7 +26,7 @@ def all_windows():
 def make_choice_string_of_wins( e ):
     ''' kompozo di lineo kun informajo pri fenestro markizita '''
     return '[{}]/\"{}\" marks={}'.format(
-        '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name
+        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME e.workspace().name
         , e.name
         , repr( e.marks ))
 
@@ -40,7 +44,7 @@ def make_choice_string_of_marks( e, m ):
     ''' kompozo di lineo kun informajo pril fenestro markizita '''
     return '{}: [{}]/\"{}\"'.format(
         m,
-        '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
+        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME e.workspace().name,
         e.name)
 
 def show_not_found_message():
