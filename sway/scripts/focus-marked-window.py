@@ -9,7 +9,7 @@ from sys import exit
 from i3ipc import Connection
 
 def all_windows():
-    ''' obteno dil tota listo di markizita fenestri, inkluzante kladala '''
+    ''' obteno dil tota listo di markizita fenestri, inkluzante le kladala '''
     tree = i3.get_tree()
     aNodes = []
     for e in tree.find_marked():
@@ -27,7 +27,7 @@ def make_choice_string_of_wins( e ):
         , repr( e.marks ))
 
 def all_marks():
-    ''' obteno dil tota listo di marki '''
+    ''' obteno dil tota listo dil marki '''
     tree = i3.get_tree()
     aNodes = []
     for e in tree.find_marked():
@@ -37,7 +37,7 @@ def all_marks():
     return aNodes
 
 def make_choice_string_of_marks( e, m ):
-    ''' kompozo di lineo kun informajo pri fenestro markizita '''
+    ''' kompozo di lineo kun informajo pril fenestro markizita '''
     return '{}: [{}]/\"{}\"'.format(
         m,
         '(hidden)' if e.workspace().name == '__i3_scratch' else e.workspace().name,
@@ -49,9 +49,9 @@ def show_not_found_message():
     run( [args.menu] + menu_args )
 
 def clear_all_marks_of_current_window( id ):
-    # kompleta efaco di omna marki che fenestro aktualigita,
+    # kompleta efaco dil omna marki che fenestro aktualigita,
     # qua atingesas per remplasigar omna marki dil fenestro
-    # per marko "clear" e posa efaco ca marko
+    # per marko "clear" e posa efaco di ca marko
     i3.command( f"[con_id={id}] mark --replace --toggle clear" )
     i3.command( f"[con_id={id}] mark --replace --toggle clear" )
 
