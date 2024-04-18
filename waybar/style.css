@@ -334,7 +334,18 @@ label:focus {
     background-color: #51a37a;
 }
 
-#language {
+#language.ru {
+    /*background: #00b093;*/
+    background: #880011;
+    /*color: #740864;*/
+    color: #ffffff;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 22px;
+    font-size: 22px;
+}
+
+#language.us {
     /*background: #00b093;*/
     background: #006677;
     /*color: #740864;*/
