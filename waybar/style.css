@@ -334,9 +334,8 @@ label:focus {
     background-color: #51a37a;
 }
 
-#language.ru {
+#language {
     /*background: #00b093;*/
-    background: #880011;
     /*color: #740864;*/
     color: #ffffff;
     padding: 0 5px;
@@ -345,15 +344,12 @@ label:focus {
     font-size: 22px;
 }
 
+#language.ru {
+    background: #880011;
+}
+
 #language.us {
-    /*background: #00b093;*/
     background: #006677;
-    /*color: #740864;*/
-    color: #ffffff;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 22px;
-    font-size: 22px;
 }
 
 #keyboard-state {
