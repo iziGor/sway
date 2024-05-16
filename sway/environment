@@ -5,6 +5,7 @@ exec $scriptdir/run-pipewire.sh &
 exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' \
 	  resume 'swaymsg "output * dpms on"'
+exec set-default-apps.sh nsxiv mpv
 exec udiskie -Ant &
 exec foot -s &
 # exec copyq --start-server &
