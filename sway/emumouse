@@ -326,3 +326,5 @@ bindsym Shift+l exec ydotool click 40
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
+
+# vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=marker filetype=i3 :
