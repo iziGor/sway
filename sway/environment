@@ -7,7 +7,10 @@ exec swayidle -w \
 	  resume 'swaymsg "output * dpms on"'
 exec set-default-apps.sh nsxiv mpv
 exec udiskie -Ant &
-exec foot -s &
+
+# started by systemd
+exec $scriptdir/run-foot.sh &
+
 # exec copyq --start-server &
 bindsym $mod+F12 exec sh -c '( pgrep copyq || copyq --start-server ) && copyq show "&Clipper"'
 
