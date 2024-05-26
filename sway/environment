@@ -5,11 +5,19 @@ exec $scriptdir/run-pipewire.sh &
 exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' \
 	  resume 'swaymsg "output * dpms on"'
+
+exec_always $scriptdir/run-i3-cycle-focus.sh
+
+exec $scriptdir/run-session.sh
+
+# {{{ notify system on base of dunst
+# exec $scriptdir/run-dunst.sh &
+# period = .
+bindsym $mod+Control+period exec dunstctl context
+# }}}
+
 exec set-default-apps.sh nsxiv mpv
 exec udiskie -Ant &
-
-# started by systemd
-exec $scriptdir/run-foot.sh &
 
 # exec copyq --start-server &
 bindsym $mod+F12 exec sh -c '( pgrep copyq || copyq --start-server ) && copyq show "&Clipper"'
