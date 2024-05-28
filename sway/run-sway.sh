@@ -93,7 +93,7 @@ export  QT_QPA_PLATFORMTHEME=qt5ct
 #export DRI_PRIME=1
 unset   XSESSION
 
-export  XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export  XCURSOR_PATH=${XCURSOR_PATH}:$HOME/.local/share/icons
 export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 
 # для работы tray в waybar
@@ -107,10 +107,10 @@ LOGFILE="$HOME/logs/sway.log"
 
 if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ; then
   # we are in systemd environment
-  exec sway >>${LOGFILE} 2>&1
+  exec sway >>"${LOGFILE}" 2>&1
 else
   # we are in non-systemd environment (openrc?)
   #dbus-run-session sway >>${LOGFILE} 2>&1
-  dbus-launch --exit-with-session sway >>${LOGFILE} 2>&1
+  dbus-launch --exit-with-session sway >>"${LOGFILE}" 2>&1
 fi
 
