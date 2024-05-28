@@ -11,11 +11,13 @@ exec_always $scriptdir/run-i3-cycle-focus.sh
 exec $scriptdir/run-session.sh
 
 # {{{ notify system on base of dunst
-# exec $scriptdir/run-dunst.sh &
 # period = .
 bindsym $mod+Control+period exec dunstctl context
+# dunst notifier не требует специальной процедуры загрузки, т.к. запускается через dbus сервер
+# exec $scriptdir/run-dunst.sh &
 # }}}
 
+exec $scriptdir/assign-cgroups.py
 exec set-default-apps.sh nsxiv mpv
 exec udiskie -Ant &
 

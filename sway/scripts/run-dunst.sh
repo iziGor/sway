@@ -4,5 +4,7 @@
 if ! ( command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ); then
   exec dunst &
 else
-  systemctl --user start dunst.service
+  if systemctl --user -q is-active sway-session.target ; then
+    systemctl --user start dunst.service
+  fi
 fi
