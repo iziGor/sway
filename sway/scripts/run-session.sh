@@ -12,6 +12,6 @@ if ( command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/nu
   # запускаем сессию, используя инструменты, взятые с https://github.com/alebastr/sway-systemd
   exec ${SWAYSCRIPTDIR}/session.sh
 else
-  # dunst &
+  dunst &
   foot -s &
 fi
