@@ -75,7 +75,8 @@ default_border pixel $defbordpix
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg $HOME/Downed/pic/wallpaper/balls_spheres_3d_149995_1920x1080.jpg fill
+# output * bg $HOME/Downed/pic/wallpaper/balls_spheres_3d_149995_1920x1080.jpg fill
+output * bg $HOME/.config/wall.pic fill
 #
 # Example configuration:
 #
