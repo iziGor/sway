@@ -17,7 +17,7 @@ bindsym $mod+Control+period exec dunstctl context
 # exec $scriptdir/run-dunst.sh &
 # }}}
 
-exec $scriptdir/assign-cgroups.py
+exec $scriptdir/assign-cgroups.py --loglevel error
 exec set-default-apps.sh nsxiv mpv
 exec udiskie -Ant &
 
