@@ -5,7 +5,7 @@ SFTMP=/tmp/grim-full.png
 SCTMP=/tmp/grim-clip.png
 grim -l 1 $SFTMP
 #imv -f $SFTMP &
-sxiv -f $SFTMP &
+nsxiv -f $SFTMP &
 IMVPID="$!"
 grim -g "$(slurp)" -l 1 $SCTMP
 #imv-msg $IMVPID quit
