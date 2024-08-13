@@ -1,26 +1,27 @@
 #!/bin/env bash
 # vim: autoindent smartindent expandtab smarttab tabstop=2 softtabstop=2 shiftwidth=2 :
 
-cachedir=~/.cache/misc
-locfile=${0##*/}-location
+cachedir="$HOME/.cache/misc"
+locfile="${0##*/}-location"
 loclist="locations.lst"
+TMPOUT=""
 
-if [ ! -d $cachedir ]; then
-    mkdir -p $cachedir
+if [[ ! -d $cachedir ]]; then
+    mkdir -p "$cachedir"
 fi
 
-if [ ! -f $cachedir/$locfile ]; then
-    echo Moscow >$cachedir/$locfile
+if [[ ! -f $cachedir/$locfile ]]; then
+    echo Moscow >"$cachedir/$locfile"
 fi
 
-if [ ! -f $cachedir/$loclist ]; then
-    echo Moscow Москва >$cachedir/$loclist
+if [[ ! -f $cachedir/$loclist ]]; then
+    echo Moscow Москва >"$cachedir/$loclist"
 fi
 
 if [[ "${1@L}" == "setloc" ]]; then
   location="$(cat $cachedir/$loclist | rofi -dmenu -p 'Select location:' | awk '{print $1}')"
   if [[ -n $location ]]; then
-    echo $location >$cachedir/$locfile
+    echo $location >"$cachedir/$locfile"
   fi
   exit
 fi
@@ -31,15 +32,15 @@ else
   location="$1"
 fi
 
-cachefile=${0##*/}-$location
-cachefile_tt=${0##*/}-tt-$location
+cachefile="${0##*/}-$location"
+cachefile_tt="${0##*/}-tt-$location"
 
-if [ ! -f $cachedir/$cachefile ]; then
-    touch $cachedir/$cachefile
+if [[ ! -f $cachedir/$cachefile ]]; then
+    touch "$cachedir/$cachefile"
 fi
 
-if [ ! -f $cachedir/$cachefile_tt ]; then
-    touch $cachedir/$cachefile_tt
+if [[ ! -f $cachedir/$cachefile_tt ]]; then
+    touch "$cachedir/$cachefile_tt"
 fi
 
 ## Save current IFS
@@ -48,14 +49,27 @@ fi
 #IFS=$'\n'
 
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
-if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
+if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
 
   if ping -qc1 wttr.in >/dev/null 2>&1 ; then
-    curl -s "https://wttr.in/$location?format=1" >$cachedir/$cachefile
-    curl -s "https://ru.wttr.in/$location?0qT" |
-      sed 's/\\/\\\\/g' |
-        sed ':a;N;$!ba;s/\n/\\n/g' |
-          sed 's/"/\\"/g' > $cachedir/$cachefile_tt
+    TMPOUT=$(curl -s "https://wttr.in/$location?format=1")
+    # curl -s "https://wttr.in/$location?format=1" >$cachedir/$cachefile
+    if [[ -n "$TMPOUT" ]] ; then
+      case "$TMPOUT" in
+        *already*|*location*)
+          # TMPOUT=""
+          ;;
+        *)
+          echo "$TMPOUT" >"$cachedir"/"$cachefile"
+          curl -s "https://ru.wttr.in/$location?0qT" |
+            sed 's/\\/\\\\/g' |
+              sed ':a;N;$!ba;s/\n/\\n/g' |
+                sed 's/"/\\"/g' > "$cachedir"/"$cachefile_tt"
+          ;;
+      esac
+    else
+      true
+    fi
   fi
 fi
 
