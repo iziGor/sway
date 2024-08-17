@@ -5,4 +5,4 @@
 
 light $*
 sleep .2
-notify-send -i mx-alerts "Current level" "$(light -G)"
+notify-send -i mx-alerts "Current brightness level" "$(light -G)"
