@@ -88,7 +88,8 @@ export  XDG_SESSION_TYPE=wayland
 export  I3CMDHF=$HOME/tmp/i3-cmd-history
 export  QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export  QT_QPA_PLATFORM=wayland
-export  QT_QPA_PLATFORMTHEME=qt5ct
+# export  QT_QPA_PLATFORMTHEME=qt5ct
+export  QT_QPA_PLATFORMTHEME=qt6ct
 #export WLR_DRM_DEVICES="/dev/dri/card1"
 #export DRI_PRIME=1
 unset   XSESSION
