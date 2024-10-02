@@ -212,7 +212,7 @@ if  __name__ == "__main__":
     count = len(scratch_con.focus)
     print("Count of scratchpad containers", count)
     # pprint.pprint( tree)
-    print("Tota arboro:\n", pformat(tree, compact=True))
+    print("Tota arboro:\n", pformat(tree.ipc_data, compact=True))
 
     # focused = [tree.find_focused()]
     # print("Focus on:\n", pformat(focused))
