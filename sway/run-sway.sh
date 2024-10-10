@@ -104,7 +104,8 @@ export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 sway_socket_file=$( mktemp -u -t --tmpdir="${XDG_RUNTIME_DIR:-/tmp}" --suffix=".sock" "sway-ipc.XXXX" )
 export SWAYSOCK=${sway_socket_file}
 
-LOGFILE="$HOME/logs/sway.log"
+# LOGFILE="$HOME/logs/sway.log"
+LOGFILE="$XDG_CONFIG_HOME/sway/sway.log"
 
 if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ; then
   # we are in systemd environment
