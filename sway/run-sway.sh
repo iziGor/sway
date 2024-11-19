@@ -100,6 +100,9 @@ export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 # для работы tray в waybar
 #export XDG_CURRENT_DESKTOP=Unity
 
+# чтобы libva не пыталась дёргать radeon
+export LIBVA_DRIVER_NAME=i965
+
 # делаем уникальный сокет для sway
 sway_socket_file=$( mktemp -u -t --tmpdir="${XDG_RUNTIME_DIR:-/tmp}" --suffix=".sock" "sway-ipc.XXXX" )
 export SWAYSOCK=${sway_socket_file}
