@@ -17,7 +17,8 @@ bindsym $mod+Control+period exec dunstctl context
 # }}}
 
 exec $scriptdir/assign-cgroups.py --loglevel error
-exec set-default-apps.sh nsxiv mpv
+# exec set-default-apps.sh nsxiv mpv
+exec set-default-apps.sh swayimg mpv
 exec udiskie -Ant &
 
 # exec copyq --start-server &
