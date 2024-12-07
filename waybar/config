@@ -139,9 +139,9 @@
         "format-disconnected": "No Net",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    // "sway/language": {
-    //     "format": "{flag}",
-    // },
+    "sway/language": {
+        "format": "{flag}",
+    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "<span color=\"#008080\">{icon}</span>{volume}% {format_source}",

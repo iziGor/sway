@@ -347,19 +347,21 @@ label:focus {
     /*background: #00b093;*/
     /*color: #740864;*/
     color: #ffffff;
+    background: #000000;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 22px;
+    font-family: "Iosevka Mea", "Noto Color Emoji";
     font-size: 22px;
 }
 
-#language.ru {
-    background: #880011;
-}
+/* #language.ru { */
+/*     background: #880011; */
+/* } */
 
-#language.us {
-    background: #006677;
-}
+/* #language.us { */
+/*     background: #006677; */
+/* } */
 
 #keyboard-state {
     /*background: #97e1ad;*/
