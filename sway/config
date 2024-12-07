@@ -663,6 +663,7 @@ for_window [app_id="^.*inentry.*$"] floating enable
 for_window [title="(Действия над файлами)|(File Operation Progress)"] floating enable
 for_window [title="(через)|(vie) Bluetooth"] floating enable
 for_window [title="Bluetooth"] floating enable
+for_window [title="TelegramDesktop" app_id="org.telegram.desktop"] floating enable
 
 # NOTE: problemo di nekoincidanta bordi dil flotacanta fenestri solvesas per adjuntar lanso-parametri por textal dimensioni dil terminalo
 # for_window [app_id="Alacritty"] resize set 1666 847
