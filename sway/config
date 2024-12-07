@@ -2,6 +2,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# форсим для загрузки в дальнейшем .Xresources
+xwayland force
+
 # {{{ kurta helpo por Mod-klavi:
 # Mod1 = Alt (Meta)
 # Mod2 = NumLock
