@@ -8,7 +8,7 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/ws", "sway/workspaces"],
-    "modules-right": ["custom/fan", "temperature", "cpu", "memory", "custom/swap", "network", "custom/networktraffic", "pulseaudio", "keyboard-state", "sway/language", "battery", "clock"],
+    "modules-right": ["custom/weather", "custom/fan", "temperature", "cpu", "memory", "custom/swap", "network", "custom/networktraffic", "pulseaudio", "keyboard-state", "sway/language", "battery", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -216,6 +216,15 @@
         "interval": 10,
         "exec": "$HOME/.config/waybar/scripts/system-fan-speed.sh"
     },
+    "custom/weather": {
+        "return-type": "json",
+        // "interval": 1800,
+        "interval": 30,
+        // "exec-if": "ping -qc1 wttr.in",
+        "exec": "$HOME/.config/waybar/scripts/weather.sh",
+        // "on-click": "firefox-bin https://wttr.in",
+        "on-click":  "$HOME/.config/waybar/scripts/weather.sh setloc"
+    },
     "custom/networktraffic": {
         "format": "{}",
         "exec": "$HOME/.config/waybar/scripts/network-traffic.sh"
@@ -230,21 +239,12 @@
     "modules-left": ["custom/scratch", "sway/mode"],
     // "modules-center": ["custom/scratch"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/weather", "tray"],
+    "modules-right": ["tray"],
     "sway/mode": {
         "format": "<span style=\"italic\"><b>{}</b></span>"
     },
     "sway/window": {
         "align": 0.0
-    },
-    "custom/weather": {
-        "return-type": "json",
-        // "interval": 1800,
-        "interval": 30,
-        // "exec-if": "ping -qc1 wttr.in",
-        "exec": "$HOME/.config/waybar/scripts/weather.sh",
-        // "on-click": "firefox-bin https://wttr.in",
-        "on-click":  "$HOME/.config/waybar/scripts/weather.sh setloc"
     },
     "custom/scratch": {
         // "format": "{} ",
