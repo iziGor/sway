@@ -60,7 +60,7 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
           # TMPOUT=""
           ;;
         *)
-          echo "$TMPOUT" >"$cachedir"/"$cachefile"
+          echo "$TMPOUT" | tr -s '[:blank:]' >"$cachedir"/"$cachefile"
           curl -s "https://ru.wttr.in/$location?0qT" |
             sed 's/\\/\\\\/g' |
               sed ':a;N;$!ba;s/\n/\\n/g' |
