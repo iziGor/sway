@@ -8,7 +8,7 @@ xwayland force
 # {{{ kurta helpo por Mod-klavi:
 # Mod1 = Alt (Meta)
 # Mod2 = NumLock
-# Mod3 = unused on default QWERT layout
+# Mod3 = Hyper, unused on default QWERT layout
 # Mod4 = Winkey (Super)
 # Mod5 = kom exemplo: "Alt_Gr" on german QWERTZ layuot
 # }}}
@@ -118,8 +118,23 @@ bindsym $mod+o output LVDS-1 toggle
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+# input * {
+#   xkb_file ~/.config/sway/keymap.xkb
+# }
+
 input * {
-  xkb_file ~/.config/sway/keymap.xkb
+  xkb_layout "us,ru"
+  # переключение раскладки US/RU - левый альт+левый шифт
+  # compose - шифт+правый альт
+  # xkb_options "grp:lalt_lshift_toggle,lv3:ralt_switch_multikey,esperanto:qwerty"
+
+  # раскладка US/RU: LCtrl+RCtrl
+  # временно: CapsLock (while pressed), Alt+CapsLock for the original Caps Lock action
+  # lv3:      правый альт (while pressed), (нужно для esperanto-букаф с шапочкой)
+  # compose:  lv3 + LCtrl (не работает)
+  # compose:  шифт+правый альт
+  # xkb_options "grp:ctrls_toggle,grp:caps_switch,lv3:ralt_switch,compose:lctrl_altgr,esperanto:qwerty"
+  xkb_options "grp:ctrls_toggle,grp:caps_switch,lv3:ralt_switch_multikey,esperanto:qwerty"
 }
 
 input type:touchpad {
