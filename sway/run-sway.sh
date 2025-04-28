@@ -107,6 +107,8 @@ export LIBVA_DRIVER_NAME=i965
 sway_socket_file=$( mktemp -u -t --tmpdir="${XDG_RUNTIME_DIR:-/tmp}" --suffix=".sock" "sway-ipc.XXXX" )
 export SWAYSOCK=${sway_socket_file}
 
+:
+
 # LOGFILE="$HOME/logs/sway.log"
 LOGFILE="$XDG_CONFIG_HOME/sway/sway.log"
 
