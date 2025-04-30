@@ -3,7 +3,7 @@
 
 if [[ -z "$@" ]]
 then
-  grep -vE '^\s*#' ~/.config/sway/config | grep bindsym | sed -e 's/bindsym\s//'
+  grep -vE '^\s*#' ~/.config/sway/config | grep -E 'bind(sy|co|sw|ge)' | sed -Ee 's/bind(sy|co|sw|ge)[^[:blank:]]+\s/b\1 /'
 else
   true
 fi
