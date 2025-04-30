@@ -141,6 +141,7 @@
     },
     "sway/language": {
         "format": "{flag}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
