@@ -122,7 +122,7 @@ bindsym $mod+o output LVDS-1 toggle
 #   xkb_file ~/.config/sway/keymap.xkb
 # }
 
-input * {
+input "type:keyboard" {
   xkb_layout "us,ru"
   # переключение раскладки US/RU - левый альт+левый шифт
   # compose - шифт+правый альт
@@ -134,10 +134,44 @@ input * {
   # compose:  lv3 + LCtrl (не работает)
   # compose:  шифт+правый альт
   # xkb_options "grp:ctrls_toggle,grp:caps_switch,lv3:ralt_switch,compose:lctrl_altgr,esperanto:qwerty"
-  xkb_options "grp:ctrls_toggle,grp:caps_switch,lv3:ralt_switch_multikey,esperanto:qwerty"
+  # xkb_options "grp:ctrls_toggle,grp:caps_switch,lv3:ralt_switch_multikey,esperanto:qwerty"
+
+  # раскладка US/RU: LCtrl+RCtrl
+  # временно: правый альт (while pressed)
+  # lv3:      CapsLock (while pressed), (нужно для esperanto-букаф с шапочкой), Ctrl+CapsLock for the original Caps Lock action
+  # compose:  lv3 + LWin
+  # xkb_options "grp:switch,lv3:caps_switch_capslock_with_ctrl,grp:caps_select,compose:lwin-altgr,esperanto:qwerty,shift:both_capslock"
+
+  ### долгая дорога в дюнах...
+  ### пришлось избавиться от lv3: Espo-буквы можно набирать и через Compose - <Mulikey><^><[chgjsu]>
+  ### <Mulikey> в данной конфигурации = Shift+RAlt (причём, Shift жмакать первым)
+  ### 
+  # 
+  # раскладка US/RU: CapsLock to first layout; Shift+CapsLock to second layout
+  # временно: правый альт (while pressed)
+  # CapsLock: два шифта одновременно
+  # compose:  Shift+RAlt
+  # xkb_options "grp:switch,grp:caps_select,shift:both_capslock"
+  # xkb_options "grp:switch"
+
+  # раскладка US/RU: <mod_key>+Tab to first layout; <mod_key>+Shift+Tab to second layout (сделано через bindcode, см. ниже)
+  # временно: CapsLock (while pressed), Alt+CapsLock for the original Caps Lock action
+  # lv3:      правый альт (while pressed), (нужно для esperanto-букаф с шапочкой)
+  # compose:  Shift+RAlt (по умолчанию)
+  xkb_options "grp:caps_switch,lv3:ralt_switch_multikey,esperanto:qwerty"
 }
 
-input type:touchpad {
+# дополнительные привязки для переключения раскладок
+# <mod_key>+CapsLock        -> US
+# bindcode $mod+66 input * xkb_switch_layout 0
+# <mod_key>+Shift+CapsLock  -> RU
+# bindcode $mod+Shift+66 input * xkb_switch_layout 1
+# <mod_key>+BackSpace       -> US
+bindcode $mod+22 input * xkb_switch_layout 0
+# <mod_key>+Control+BackSpace -> RU
+bindcode $mod+Control+22 input * xkb_switch_layout 1
+
+input "type:touchpad" {
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
   tap enabled
   pointer_accel -0.1
