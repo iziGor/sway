@@ -10,7 +10,7 @@ exec_always $scriptdir/run-i3-cycle-focus.sh
 exec $scriptdir/inactive-windows-transparency.py
 
 exec $scriptdir/run-session.sh
-exec $scriptdir/run-foot.sh &
+# exec $scriptdir/run-foot.sh &
 
 # {{{ notify system on base of dunst
 # period = .
