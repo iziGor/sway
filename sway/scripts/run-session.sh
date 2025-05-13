@@ -12,7 +12,7 @@ if ( command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/nu
   # swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
 
   # запускаем сессию, используя инструменты, взятые с https://github.com/alebastr/sway-systemd
-  exec ${SWAYSCRIPTDIR}/session.sh --add-env=LIBVA_DRIVER_NAME
+  exec ${SWAYSCRIPTDIR}/session.sh --add-env=GTK_CSD --add-env=SDL_VIDEODRIVER --add-env=GDK_BACKEND --add-env=EGL_PLATFORM --add-env=QT_WAYLAND_DISABLE_WINDOWDECORATION --add-env=XCURSOR_PATH --add-env=YDOTOOL_SOCKET --add-env=LIBVA_DRIVER_NAME
 else
   dunst &
   foot -s &
