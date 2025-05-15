@@ -22,5 +22,6 @@ case "${1@L}" in
   *) SUSPMODE=suspend
   ;;
 esac
-exec sudo $PROGCTL $SUSPMODE
-#echo exec sudo $PROGCTL $SUSPMODE
+exec $PROGCTL $SUSPMODE
+# запуск через sudo заменён на правило PolicyKit в /etc/polkit-1/rules.d/10-suspend.rules
+# exec sudo $PROGCTL $SUSPMODE
