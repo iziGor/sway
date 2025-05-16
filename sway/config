@@ -155,7 +155,7 @@ input "type:keyboard" {
   # xkb_options "grp:switch,grp:caps_select,shift:both_capslock"
   # xkb_options "grp:switch"
 
-  # раскладка US/RU: <mod_key>+Tab to first layout; <mod_key>+Shift+Tab to second layout (сделано через bindcode, см. ниже)
+  # раскладка US/RU: <mod_key>+BS to first layout; <mod_key>+Ctrl+BS to second layout (сделано через bindcode, см. ниже)
   # временно: CapsLock (while pressed), Alt+CapsLock for the original Caps Lock action
   # lv3:      правый альт (while pressed), (нужно для esperanto-букаф с шапочкой)
   # compose:  Shift+RAlt (по умолчанию)
