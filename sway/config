@@ -415,6 +415,7 @@ bindsym $mod+Control+e exec $scriptdir/nagmenu.sh
 
 # hotkeys help
 bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
+bindsym Mod4+Shift+Control+k exec footclient --title="keybindings" -W 100x20 /home/izoom/.local/bin/fzf-sway-bindkeys.sh
 
 # toggle libinput scroll method
 bindsym $mod+Control+t exec $scriptdir/tgl-scroll-method-sway.py
@@ -724,6 +725,7 @@ for_window [title="(через)|(vie) Bluetooth"] floating enable
 for_window [title="Bluetooth"] floating enable
 for_window [title="TelegramDesktop" app_id="org.telegram.desktop"] floating enable
 for_window [title="Open book file"] floating enable
+for_window [title="keybindings"] floating enable
 
 # NOTE: problemo di nekoincidanta bordi dil flotacanta fenestri solvesas per adjuntar lanso-parametri por textal dimensioni dil terminalo
 # for_window [app_id="Alacritty"] resize set 1666 847
