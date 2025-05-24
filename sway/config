@@ -415,7 +415,7 @@ bindsym $mod+Control+e exec $scriptdir/nagmenu.sh
 
 # hotkeys help
 bindsym $mod+Control+k exec $scriptdir/show-hotkeys.sh
-bindsym Mod4+Shift+Control+k exec footclient --title="keybindings" -W 100x20 /home/izoom/.local/bin/fzf-sway-bindkeys.sh
+bindsym $mod+Shift+Control+k exec footclient --title="keybindings" -W 100x20 /home/izoom/.local/bin/fzf-sway-bindkeys.sh
 
 # toggle libinput scroll method
 bindsym $mod+Control+t exec $scriptdir/tgl-scroll-method-sway.py
