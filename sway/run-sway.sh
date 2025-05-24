@@ -96,7 +96,7 @@ export  QT_QPA_PLATFORM=wayland
 #export DRI_PRIME=1
 unset   XSESSION
 
-export  XCURSOR_PATH=${XCURSOR_PATH}:$HOME/.local/share/icons
+export  XCURSOR_PATH=$HOME/.local/share/icons
 export  YDOTOOL_SOCKET=/tmp/.ydotool_socket
 
 # для работы tray в waybar
