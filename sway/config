@@ -144,8 +144,8 @@ input "type:keyboard" {
   # xkb_options "grp:switch,lv3:caps_switch_capslock_with_ctrl,grp:caps_select,compose:lwin-altgr,esperanto:qwerty,shift:both_capslock"
 
   ### долгая дорога в дюнах...
-  ### пришлось избавиться от lv3: Espo-буквы можно набирать и через Compose - <Mulikey><^><[chgjsu]>
-  ### <Mulikey> в данной конфигурации = Shift+RAlt (причём, Shift жмакать первым)
+  ### пришлось избавиться от lv3: Espo-буквы можно набирать и через Compose - <Multikey><^><[chgjsu]>
+  ### <Multikey> в данной конфигурации = Shift+RAlt (причём, Shift жмакать первым)
   ### 
   # 
   # раскладка US/RU: CapsLock to first layout; Shift+CapsLock to second layout
@@ -162,7 +162,7 @@ input "type:keyboard" {
   xkb_options "grp:caps_switch,lv3:ralt_switch_multikey,esperanto:qwerty"
 }
 
-# дополнительные привязки для переключения раскладок
+# {{{ дополнительные привязки для переключения раскладок
 # <mod_key>+CapsLock        -> US
 # bindcode $mod+66 input * xkb_switch_layout 0
 # <mod_key>+Shift+CapsLock  -> RU
@@ -171,6 +171,11 @@ input "type:keyboard" {
 bindcode $mod+22 input * xkb_switch_layout 0
 # <mod_key>+Control+BackSpace -> RU
 bindcode $mod+Control+22 input * xkb_switch_layout 1
+# <mod_key>+grave (там, где ~)       -> US
+bindcode $mod+49 input * xkb_switch_layout 0
+# <mod_key>+Control+grave (там, где ~) -> RU
+bindcode $mod+Control+49 input * xkb_switch_layout 1
+# }}}
 
 input "type:touchpad" {
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
