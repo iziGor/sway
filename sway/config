@@ -180,7 +180,7 @@ bindcode $mod+Control+49 input * xkb_switch_layout 1
 input "type:touchpad" {
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
   accel_profile adaptive
-  pointer_accel -0.3
+  pointer_accel -0.35
   scroll_factor 0.3
   tap enabled
 }
