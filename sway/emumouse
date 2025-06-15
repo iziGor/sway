@@ -8,6 +8,7 @@ set $mouse99 "kbd2mus: +100px ←↑↓→ 0 1 5 R r L m"
 set $mouse200 "kbd2mus: +200px ←↑↓→ 0 1 5 9 R r L m"
 set $mouse400 "kbd2mus: +400px ←↑↓→ 0 1 5 9 R r L m"
 bindsym $mod+z mode $mouse99
+bindsym Group2+$mod+Cyrillic_ya mode $mouse99
 mode $mouse_1 {
 set $$OFS 1
 bindsym Left exec ydotool mousemove -- -$OFS 0
