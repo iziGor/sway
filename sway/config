@@ -741,6 +741,12 @@ for_window [title="keybindings"] floating enable
 # }}}
 
 #
+# {{{ diversa utensili
+# magnifier lens
+bindsym $mod+Shift+m    exec hyprmag
+# }}}
+
+#
 # Status Bar:
 # {{{
 # Read `man 5 sway-bar` for more information about this section.
