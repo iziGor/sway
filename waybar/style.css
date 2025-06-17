@@ -144,6 +144,7 @@ window#waybar.chromium {
     font-weight: bolder;
     font-size: 20px;
     color: #32cd76;
+    /* font-family: "Iosevka Mea", "Font Awesome"; */
     /*background-color: #64727D;*/
 }
 
@@ -458,6 +459,6 @@ label:focus {
     /*padding: 0 5px;*/
     color: #bddfdf;
     margin-right: 7px;
-    font-family: "Iosevka Mea", "Font Awesome ";
+    /* font-family: "Iosevka Mea", "Font Awesome"; */
 }
 
