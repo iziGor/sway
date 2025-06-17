@@ -26,7 +26,7 @@ def all_windows():
 def make_choice_string_of_wins( e ):
     ''' kompozo di lineo kun informajo pri fenestro markizita '''
     return '[{}]/\"{}\" marks={}'.format(
-        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME e.workspace().name
+        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME else e.workspace().name
         , e.name
         , repr( e.marks ))
 
@@ -44,7 +44,7 @@ def make_choice_string_of_marks( e, m ):
     ''' kompozo di lineo kun informajo pril fenestro markizita '''
     return '{}: [{}]/\"{}\"'.format(
         m,
-        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME e.workspace().name,
+        '(hidden)' if e.workspace().name == SCRATCH_WINDOW_NAME else e.workspace().name,
         e.name)
 
 def show_not_found_message():
