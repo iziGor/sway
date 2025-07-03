@@ -24,8 +24,11 @@ bindsym $mod+Control+period exec dunstctl context
 exec set-default-apps.sh swayimg mpv
 exec udiskie -Ant &
 
-# exec copyq --start-server &
-bindsym $mod+F12 exec sh -c '( pgrep copyq || copyq --start-server ) && copyq show "&Clipper"'
+## clipboard manager
+# bindsym $mod+F12 exec sh -c '( pgrep copyq || copyq --start-server ) && copyq show "&Clipper"'
+exec wl-paste --type text/plain --watch cliphist store
+exec wl-paste --type text/html --watch cliphist store
+exec wl-paste --type image  --watch cliphist store
 
 # exec echo DISPLAY = "$DISPLAY"
 # exec sh -c 'xrdb -merge -display "$DISPLAY" ~/.Xresources && echo xrdb executed with success!!! || echo xrdb executing error!!!'
