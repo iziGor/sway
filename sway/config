@@ -435,7 +435,7 @@ bindsym $mod+Shift+b exec bg-toggle.sh
 # ligo di MMkeys 'HomePge' e 'Mail' a startigo 'firefox' e 'thunderbird'
 # en rispektiva loki
 #bindsym XF86HomePage workspace $web; exec sh -c 'pgrep firefox || firefox'
-bindsym XF86HomePage workspace $web; layout tabbed; exec sh -c 'pgrep "firefox-bin" || firefox-bin'
+bindsym XF86HomePage workspace $web; layout tabbed; exec sh -c 'pgrep "firefox-bin" || run-ff.sh'
 bindsym XF86Mail workspace $mail; layout tabbed; exec sh -c 'pgrep "thunderbird-bin" || thunderbird-bin'
 bindsym XF86Explorer exec Thunar
 
