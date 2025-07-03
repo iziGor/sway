@@ -116,6 +116,8 @@ LOGFILE="$XDG_CONFIG_HOME/sway/sway.log"
 
 if command -v systemctl >/dev/null 2>&1 && systemctl --user list-jobs >/dev/null 2>&1 ; then
   # we are in systemd environment
+  # то, что ниже - бессмысленно
+  # systemctl --user import-environment
   exec sway >>"${LOGFILE}" 2>&1
 else
   # we are in non-systemd environment (openrc?)
