@@ -197,10 +197,10 @@ font pango:Iosevka Mea Medium 14
     # Start a terminal
     #bindsym $mod+Return exec $term -o font.size=18
     #bindsym $mod+Return exec $term
-    bindsym $mod+Return exec "alacritty msg create-window -e $SHELL -i || $term -e $SHELL -i"
+    bindsym $mod+Alt+Return exec "alacritty msg create-window -e $SHELL -i || $term -e $SHELL -i"
     bindsym $mod+Shift+Return exec $termcmd
     #bindsym $mod+Alt+Return exec footclient || notify-send -i dialog-error "footclient" "launch failed\nretcode $( echo $? )"
-    bindsym $mod+Alt+Return exec footclient -W 146x32
+    bindsym $mod+Return exec footclient -W 146x32
 
     # Kill focused window
     bindsym $mod+Shift+q kill
