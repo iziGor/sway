@@ -39,11 +39,11 @@ set $scriptdir ${HOME}/.config/sway/scripts
 set $defbordpix 3
 
 # altra nomi por laborplasi
-set $web   3
-set $mail  4
-set $chat  5
-set $pic   6
-set $media 8
+set $web   workspace number 3
+set $mail  workspace number 4
+set $chat  workspace number 5
+set $pic   workspace number 6
+set $media workspace number 8
 
 # {{{ Setting colors
 set  $bg     #4c7899
@@ -325,21 +325,21 @@ assign [app_id=".*[Tt]hunderbird.*"] $mail
 #assign $browsers  $web
 assign $browsers  3
 #for_window [class="^(telegram-desktop|Skype|Telegram-desktop|ViberPC|TelegramDesktop|finch|VK)$"] move container to workspace $chat, workspace $chat, focus
-for_window [class="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
-for_window [app_id="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace 5, workspace 5, focus
+for_window [class="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace number 5, workspace number 5, focus
+for_window [app_id="^.*([Tt]elegram([-_]?[Dd]esktop)?|Skype|ViberPC|finch|VK).*$"] move container to workspace number 5, workspace number 5, focus
 
 #for_window [class="(?i)^(VirtualBox|vmware|[Qq]emu.*|spic).*$"] move container to workspace $vm, focus
 #for_window [class="Gimp"] move container to workspace $pic, workspace $pic, focus
 #for_window [class="Gimp" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
-for_window [class=".*[Gg]imp.*"] move container to workspace 6, workspace 6, focus
-for_window [app_id=".*[Gg]imp.*"] move container to workspace 6, workspace 6, focus
+for_window [class=".*[Gg]imp.*"] move container to workspace number 6, workspace number 6, focus
+for_window [app_id=".*[Gg]imp.*"] move container to workspace number 6, workspace number 6, focus
 for_window [class=".*[Gg]imp.*" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
 for_window [app_id=".*[Gg]imp.*" window_role="^(gimp-file-open|gimp-file-save|gimp-message-dialog|gimp-image-new|gimp-toolbox-color-dialog)$"]  floating enable
 #for_window [class="darktable"] move container to workspace $pic, workspace $pic, focus
 #for_window [class="^(inkscape|simple-scan)$"] move container to workspace $pic
 #for_window [class="^(MPlayer|mplayer2|mpv|cheese|obs)$"] move container to workspace $media, workspace $media, focus
-for_window [class="^(MPlayer|mplayer2|mpv|cheese|obs)$"] move container to workspace 8, workspace 8, focus
-for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to workspace 8, workspace 8, focus
+for_window [class="^(MPlayer|mplayer2|mpv|cheese|obs)$"] move container to workspace number 8, workspace number 8, focus
+for_window [app_id="^.*([Mm][Pp]layer2?|mpv|cheese|obs).*$"] move container to workspace number 8, workspace number 8, focus
 #for_window [class="^lollypop$"] move container to workspace $media, workspace $media, focus
 #for_window [class="(?i)dota.*"] floating enable, move container to workspace $wine, workspace $wine, focus
 #for_window [class="(?i)(Wine|Crossover)"] floating enable, move container to workspace $wine, workspace $wine, focus
