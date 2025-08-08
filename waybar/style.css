@@ -53,6 +53,10 @@ window#waybar.chromium {
     border: none;
 }
 
+#workspaces {
+    font-family: "Iosevka Mea", "Symbols Nerd Font";
+}
+
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
