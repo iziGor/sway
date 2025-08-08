@@ -107,7 +107,9 @@
     "cpu": {
         // "format": "{usage}%<span color=\"#008080\"></span>",
         // "format": "<span color=\"#008080\"></span>{usage}%",
-        "format": "<span color=\"#008080\"></span>{usage}%",
+        // "format": "<span color=\"#008080\"></span>{usage}%",
+        // "format": "<span color=\"#008080\"></span>{usage}%",
+        "format": "<span color=\"#008080\"></span>{usage}%",
         // "format": "<span color=\"#008080\"></span>{usage}%",
         "tooltip": false,
         "interval": 5,
