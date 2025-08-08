@@ -22,7 +22,8 @@ WINDOW_ICONS = {
     "xfce4-terminal": "",
     "thunderbird": "",
     # "telegram": "",
-    "org.telegram.desktop": "",
+    # "org.telegram.desktop": "",
+    "telegram": "",
     "gimp": "",
     "swayimg": "",
     "nsxiv": "",
@@ -32,8 +33,11 @@ WINDOW_ICONS = {
     "crqt": "",
     "thunar": "",
     # "hyprmag": "",
-    "hyprmag": "",
+    # "hyprmag": "",
     "mpv": "",
+    "libreoffice-startcenter": "",
+    # "libreoffice-writer": "",
+    # "libreoffice-calc": "",
     "libreoffice-writer": "",
     "libreoffice-calc": "",
 }
@@ -49,8 +53,10 @@ def icon_for_window(window):
     elif window.window_class is not None and len(window.window_class) > 0:
         name =  window.window_class.lower()
 
-    if name in WINDOW_ICONS:
-        return WINDOW_ICONS[name]
+    for k in WINDOW_ICONS.keys():
+        # if name in WINDOW_ICONS:
+        if k in name:
+            return WINDOW_ICONS[k]
 
     logging.info("No icon available for window with name: %s" % str(name))
     return DEFAULT_ICON
