@@ -9,6 +9,8 @@ exec_always $scriptdir/run-i3-cycle-focus.sh
 
 exec $scriptdir/inactive-windows-transparency.py
 
+exec $scriptdir/autoname-workspaces.py
+
 exec $scriptdir/run-session.sh
 # exec $scriptdir/run-foot.sh &
 
