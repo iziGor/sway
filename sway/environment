@@ -6,10 +6,9 @@ exec swayidle -w \
 	  resume 'swaymsg "output LVDS-1 dpms on"'
 
 exec_always $scriptdir/run-i3-cycle-focus.sh
+exec_always $scriptdir/run-autoname-wrkspc.sh
 
 exec $scriptdir/inactive-windows-transparency.py
-
-exec $scriptdir/autoname-workspaces.py
 
 exec $scriptdir/run-session.sh
 # exec $scriptdir/run-foot.sh &
