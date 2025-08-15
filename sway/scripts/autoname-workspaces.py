@@ -52,6 +52,7 @@ WINDOW_ICONS = {
 # DEFAULT_ICON = "󰀏"
 DEFAULT_ICON = ""
 
+WSP_NAME = re.compile(r"(?P<num>[^\s:]+):?(?P<shortname>\w+)? ?(?P<icons>.+)?")
 
 def icon_for_window(window):
     name = None
@@ -95,13 +96,16 @@ def undo_window_renaming(ipc):
 
 
 def parse_workspace_name(name):
-    return re.match(
-        r"(?P<num>[0-9]+):?(?P<shortname>\w+)? ?(?P<icons>.+)?", name
-    ).groupdict()
+    mo = WSP_NAME.match( name )
+    if  mo:
+        return mo.groupdict()
+    else:
+        return {'num': name, 'shortname': None, 'icons': None}
 
 
 def construct_workspace_name(parts):
-    new_name = str(parts["num"])
+    # new_name = str(parts["num"])
+    new_name = parts["num"]
     if parts["shortname"] or parts["icons"]:
         new_name += ":"
 
@@ -140,7 +144,7 @@ if __name__ == "__main__":
         level=logging.INFO,
         filename=ARGUMENTS.logfile,
         filemode="w",
-        format="%(message)s",
+        format="%(asctime)s %(message)s",
     )
 
     ipc = i3ipc.Connection()
