@@ -55,7 +55,7 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
   # deskapabligita nam programo 'ping' falias resolvar/obtenar adreso di situo
   # if ping -qc1 wttr.in >/dev/null 2>&1 ; then
     # TMPOUT=$(curl -s "https://wttr.in/$location?format=1")
-    TMPOUT=$(curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?format=1")
+    TMPOUT=$(curl --connect-timeout 15 -s -H "Accept-Language: ru" "https://wttr.in/$location?format=1")
     # curl -s "https://wttr.in/$location?format=1" >$cachedir/$cachefile
     if [[ -n "$TMPOUT" ]] ; then
       case "$TMPOUT" in
@@ -65,14 +65,17 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
         *)
           echo "$TMPOUT" | tr -s '[:blank:]' >"$cachedir"/"$cachefile"
           # curl -s "https://ru.wttr.in/$location?0qT" |
-          curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?0q" |
-            sed 's/\\/\\\\/g' |
-              sed ':a;N;$!ba;s/\n/\\n/g' |
-                sed 's/"/\\"/g' |
-                  ansi2html -i |
-                    sed 's/<span style="font-weight: bold">\(.\)<\/span>/<b>\1<\/b>/g' |
-                    sed 's/style="color: \(#......\)"/color=\\"\1\\"/g' > "$cachedir"/"$cachefile_tt"
-                    # sed 's/style="color: /color="/g' > "$cachedir"/"$cachefile_tt"
+          # curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?0q" |
+          #   sed 's/\\/\\\\/g' |
+          #     sed ':a;N;$!ba;s/\n/\\n/g' |
+          #         ansi2html -i |
+          #           sed 's/<span style="font-weight: bold">\(.\)<\/span>/<b>\1<\/b>/g' |
+          #           sed 's/style="color: \(#......\)"/color=\\"\1\\"/g' |
+          #           sed 's/"/\\"/g' > "$cachedir"/"$cachefile_tt"
+          #           # sed 's/style="color: /color="/g' > "$cachedir"/"$cachefile_tt"
+          curl --connect-timeout 15 -s -H "Accept-Language: ru" "https://wttr.in/$location?0q" |
+            ansi2html -pi |
+            weather-normal-span.py > "$cachedir"/"$cachefile_tt"
           ;;
       esac
     else
