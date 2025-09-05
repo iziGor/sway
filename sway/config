@@ -175,6 +175,9 @@ bindcode $mod+Control+22 input * xkb_switch_layout 1
 bindcode $mod+49 input * xkb_switch_layout 0
 # <mod_key>+Control+grave (там, где ~) -> RU
 bindcode $mod+Control+49 input * xkb_switch_layout 1
+# ESC bindings
+bindsym $mod+Escape input * xkb_switch_layout 0
+bindsym $mod+Control+Escape input * xkb_switch_layout 1
 # }}}
 
 input "type:touchpad" {
