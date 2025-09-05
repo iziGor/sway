@@ -43,7 +43,7 @@ bfr = sys.stdin
 aRes = []
 if  not bfr.isatty() and bfr.readable():
     for s in bfr:
-        aRes.append(parse(s.strip()).replace('\\', r"\\" ).replace(r'"', r'\"'))
+        aRes.append(parse(s.rstrip('\n')).replace('\\', r"\\" ).replace(r'"', r'\"'))
         # aRes.append(parse(s.strip()))
 
     print(r'\n'.join(aRes), end='')
