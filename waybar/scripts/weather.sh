@@ -48,6 +48,12 @@ fi
 ## Change IFS to new line.
 #IFS=$'\n'
 
+_save_tt () {
+  curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?0q" |
+    ansi2html -pi |
+    weather-normal-span.py > "$cachedir"/"$cachefile_tt"
+}
+
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
 
@@ -55,7 +61,7 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
   # deskapabligita nam programo 'ping' falias resolvar/obtenar adreso di situo
   # if ping -qc1 wttr.in >/dev/null 2>&1 ; then
     # TMPOUT=$(curl -s "https://wttr.in/$location?format=1")
-    TMPOUT=$(curl --connect-timeout 15 -s -H "Accept-Language: ru" "https://wttr.in/$location?format=1")
+    TMPOUT=$(curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?format=1")
     # curl -s "https://wttr.in/$location?format=1" >$cachedir/$cachefile
     if [[ -n "$TMPOUT" ]] ; then
       case "$TMPOUT" in
@@ -73,15 +79,18 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
           #           sed 's/style="color: \(#......\)"/color=\\"\1\\"/g' |
           #           sed 's/"/\\"/g' > "$cachedir"/"$cachefile_tt"
           #           # sed 's/style="color: /color="/g' > "$cachedir"/"$cachefile_tt"
-          curl --connect-timeout 15 -s -H "Accept-Language: ru" "https://wttr.in/$location?0q" |
-            ansi2html -pi |
-            weather-normal-span.py > "$cachedir"/"$cachefile_tt"
+          _save_tt
           ;;
       esac
     else
       true
     fi
   # fi
+fi
+
+cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile_tt")))
+if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile_tt ]]; then
+  _save_tt
 fi
 
 ## Restore IFSClear
