@@ -355,8 +355,9 @@ label:focus {
     background: #000000;
     padding: 0 5px;
     margin: 0 5px;
-    min-width: 22px;
-    font-family: "Iosevka Mea", "Noto Color Emoji";
+    min-width: 28px;
+    /* font-family: "Iosevka Mea", "Noto Color Emoji"; */
+    font-family: "Noto Color Emoji";
     font-size: 22px;
 }
 
