@@ -1,12 +1,12 @@
 # Muso-jerado per klavaro
-set $mouse_1 "kbd2mus: +1px ←↑↓→ 1 5 9 R r L m"
-set $mouse10 "kbd2mus: +10px ←↑↓→ 0 5 9 R r L m"
-#set $mouse20 "kbd2mus: +20px ←↑↓→ 0 1 3 5 9 R r L m"
-#set $mouse30 "kbd2mus: +30px ←↑↓→ 0 1 2 5 9 R r L m"
-set $mouse50 "kbd2mus: +50px ←↑↓→ 0 1 9 R r L m"
-set $mouse99 "kbd2mus: +100px ←↑↓→ 0 1 5 R r L m"
-set $mouse200 "kbd2mus: +200px ←↑↓→ 0 1 5 9 R r L m"
-set $mouse400 "kbd2mus: +400px ←↑↓→ 0 1 5 9 R r L m"
+set $mouse_1 "kbd2mus: +1px ←↑↓→ 1 5 9 r L l m"
+set $mouse10 "kbd2mus: +10px ←↑↓→ 0 5 9 r L l m"
+#set $mouse20 "kbd2mus: +20px ←↑↓→ 0 1 3 5 9 r L l m"
+#set $mouse30 "kbd2mus: +30px ←↑↓→ 0 1 2 5 9 r L l m"
+set $mouse50 "kbd2mus: +50px ←↑↓→ 0 1 9 r L l m"
+set $mouse99 "kbd2mus: +100px ←↑↓→ 0 1 5 r L l m"
+set $mouse200 "kbd2mus: +200px ←↑↓→ 0 1 5 9 r L l m"
+set $mouse400 "kbd2mus: +400px ←↑↓→ 0 1 5 9 r L l m"
 bindsym $mod+z mode $mouse99
 bindsym Group2+$mod+Cyrillic_ya mode $mouse99
 mode $mouse_1 {
@@ -52,7 +52,10 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
@@ -99,44 +102,13 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
-#mode $mouse20 {
-#bindsym Left exec ydotool mousemove -- -20 0
-#bindsym Up exec ydotool mousemove -- 0 -20
-#bindsym Down exec ydotool mousemove -- 0 20
-#bindsym Right exec ydotool mousemove -- 20 0
-#bindsym KP_Enter exec ydotool click C0
-#bindsym Return exec ydotool click C0
-#bindsym space exec ydotool click C0
-#bindsym m exec ydotool click C2
-#bindsym r exec ydotool click C1
-#bindsym 0 mode $mouse_1
-#bindsym 1 mode $mouse10
-#bindsym 3 mode $mouse30
-#bindsym 5 mode $mouse50
-#bindsym 9 mode $mouse90
-#bindsym Escape mode "default"
-#}
-#mode $mouse30 {
-#bindsym Left exec ydotool mousemove -- -30 0
-#bindsym Up exec ydotool mousemove -- 0 -30
-#bindsym Down exec ydotool mousemove -- 0 30
-#bindsym Right exec ydotool mousemove -- 30 0
-#bindsym KP_Enter exec ydotool click C0
-#bindsym Return exec ydotool click C0
-#bindsym space exec ydotool click C0
-#bindsym m exec ydotool click C2
-#bindsym r exec ydotool click C1
-#bindsym 0 mode $mouse_1
-#bindsym 1 mode $mouse10
-#bindsym 2 mode $mouse20
-#bindsym 5 mode $mouse50
-#bindsym 9 mode $mouse90
-#bindsym Escape mode "default"
-#}
 mode $mouse50 {
 set $$OFS 50
 bindsym Left exec ydotool mousemove -- -$OFS 0
@@ -180,7 +152,10 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
@@ -227,7 +202,10 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
@@ -275,7 +253,10 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
@@ -323,7 +304,10 @@ bindsym Control+2 mode $mouse50
 bindsym Control+3 mode $mouse99
 bindsym Control+4 mode $mouse200
 bindsym Control+5 mode $mouse400
+# left mouse button pressed down
 bindsym Shift+l exec ydotool click 40
+# left mouse button released
+bindsym l exec ydotool click 80
 bindsym Escape exec ydotool click 80 ; mode "default"
 bindsym q exec ydotool click 80 ; mode "default"
 }
