@@ -162,7 +162,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "interface": "wlan0", // (Optional) To force the use of this interface
+        // "interface": "wlan0", // (Optional) To force the use of this interface
         // "format-wifi": "{essid} ({signalStrength}%) Up:{bandwidthUpBits} Dn:{bandwidthDownBits}<span color=\"#008080\"></span>",
         "format-wifi": "{essid} ({signalStrength}%)",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} <span color=\"#008080\"></span>",
