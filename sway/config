@@ -479,6 +479,8 @@ bindsym XF86AudioRaiseVolume exec $scriptdir/snd_vol.sh '+5%'
 bindsym XF86AudioMute exec $scriptdir/snd_mute.sh
 
 bindsym XF86Tools exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
+bindsym Alt+XF86Tools exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pipemixer" -e 'pipemixer'
+bindsym $mod+Alt+F1 exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pipemixer" -e 'pipemixer'
 bindsym Control+XF86Tools exec $termcmd $ttitle "pulsemixer" -e 'pulsemixer'
 bindsym Control+XF86AudioMute exec footclient -o colors.alpha=0.75 -o initial-window-size-chars=90x20 --title "pulsemixer" -e 'pulsemixer'
 bindsym Shift+Control+XF86Tools exec alacritty -o 'window.dimensions.lines=20' -o 'window.dimensions.columns=90' -o window.opacity=0.7 --title "pulsemixer" -e 'pulsemixer'
@@ -728,6 +730,7 @@ mode $chlight {
 #for_window [app_id="^.*$"] border pixel $defbordpix
 
 for_window [title="pulsemixer"] floating enable, border pixel $defbordpix
+for_window [title="pipemixer"] floating enable, border pixel $defbordpix
 for_window [title="^Firefox.*Profile$"] floating enable
 for_window [title="^Password.*Thunderbird$"] floating enable
 for_window [app_id="^.*inentry.*$"] floating enable
