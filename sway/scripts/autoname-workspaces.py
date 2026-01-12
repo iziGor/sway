@@ -38,6 +38,7 @@ WINDOW_ICONS = {
     # "thunar": "",
     "thunar": "󰷏",
     # "thunar": "",
+    "far2l": "",
     # "hyprmag": "",
     # "hyprmag": "",
     # "mpv": "",
@@ -146,6 +147,8 @@ if __name__ == "__main__":
         filemode="w",
         format="%(asctime)s %(message)s",
     )
+
+    # logging.info("Icons available: %s" % repr(WINDOW_ICONS))
 
     ipc = i3ipc.Connection()
 
