@@ -1,4 +1,7 @@
 #!/usr/bin/python
+#
+# vim: autoindent smartindent expandtab smarttab tabstop=4 softtabstop=4 shiftwidth=4 foldmethod=marker:
+
 
 # This script requires i3ipc-python package (install it from a system package manager
 # or pip).
