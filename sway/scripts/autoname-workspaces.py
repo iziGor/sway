@@ -67,7 +67,7 @@ def icon_for_window(window):
         if k in name:
             return WINDOW_ICONS[k]
 
-    logging.info("No icon available for window with name: %s" % str(name))
+    logging.warning("No icon available for window with name: %s" % str(name))
     return DEFAULT_ICON
 
 def rename_workspaces(ipc):
@@ -142,7 +142,8 @@ if __name__ == "__main__":
     ARGUMENTS = args
 
     logging.basicConfig(
-        level=logging.INFO,
+        # level=logging.INFO,
+        level=logging.WARNING,
         filename=ARGUMENTS.logfile,
         filemode="w",
         format="%(asctime)s %(message)s",
