@@ -5,6 +5,7 @@ cachedir="$HOME/.cache/misc"
 locfile="${0##*/}-location"
 loclist="locations.lst"
 TMPOUT=""
+AGELMT=$(( 29 * 60 ))
 
 if [[ ! -d $cachedir ]]; then
     mkdir -p "$cachedir"
@@ -49,13 +50,14 @@ fi
 #IFS=$'\n'
 
 _save_tt () {
-  curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?0q" |
+  # curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location?0q" |
+  curl --connect-timeout 15 -s -H "Accept-Language: ru" "wttr.in/$location" |
     ansi2html -pi |
     weather-normal-span.py > "$cachedir"/"$cachefile_tt"
 }
 
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
-if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
+if [[ $cacheage -gt $AGELMT ]] || [[ ! -s $cachedir/$cachefile ]]; then
 
   # disabled because 'ping' cannot resolve the name of the resource
   # deskapabligita nam programo 'ping' falias resolvar/obtenar adreso di situo
@@ -65,7 +67,7 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
     # curl -s "https://wttr.in/$location?format=1" >$cachedir/$cachefile
     if [[ -n "$TMPOUT" ]] ; then
       case "$TMPOUT" in
-        *already*|*location*)
+        *already*|*location*|*Empty*)
           # TMPOUT=""
           ;;
         *)
@@ -89,7 +91,7 @@ if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile ]]; then
 fi
 
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile_tt")))
-if [[ $cacheage -gt 1740 ]] || [[ ! -s $cachedir/$cachefile_tt ]]; then
+if [[ $cacheage -gt $AGELMT ]] || [[ ! -s $cachedir/$cachefile_tt ]]; then
   _save_tt
 fi
 

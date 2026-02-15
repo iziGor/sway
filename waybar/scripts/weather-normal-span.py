@@ -4,7 +4,8 @@
 import sys
 import re
 
-sreSpanStyle = r'<span style="([^>"]*?)">(.*?)</span>'
+creSpanStyle = re.compile(r'<span style="([^>"]*?)">(.*?)</span>')
+creBorder    = re.compile(r'^\s+┌─')
 
 def parse(s):
     sRet = ''
@@ -14,7 +15,7 @@ def parse(s):
     last_pos = 0
 
     # print(f's = "{s.strip('\n')}"', file=sys.stderr)
-    for mo in re.finditer(sreSpanStyle, s):
+    for mo in creSpanStyle.finditer(s):
         # sRet = ''
         aTmp = []
         sStyle = mo.group(1)
@@ -43,6 +44,8 @@ bfr = sys.stdin
 aRes = []
 if  not bfr.isatty() and bfr.readable():
     for s in bfr:
+        if  creBorder.match(s):
+            break
         aRes.append(parse(s.rstrip('\n')).replace('\\', r"\\" ).replace(r'"', r'\"'))
         # aRes.append(parse(s.strip()))
 
